@@ -75,11 +75,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|product_id|integer|null: false|
+|product_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-
+- belongs_to :product
 
 ## categoriesテーブル
 |Column|Type|Options|
