@@ -58,7 +58,7 @@
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
-- has_many :images
+- has_many :product_images
 
 
 ## product_imagesテーブル
@@ -66,15 +66,6 @@
 |------|----|-------|
 |product_id|references|null: false, foreign_key: true|
 |image_1|string|null: false|
-|image_2|string|
-|image_3|string|
-|image_4|string|
-|image_5|string|
-|image_6|string|
-|image_7|string|
-|image_8|string|
-|image_9|string|
-|image_10|string|
 
 ### Association
 - belongs_to :product
