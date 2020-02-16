@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+/* デプロイ時のCSS反映を確認するための記述です */
+ .test_h1{
+   color: blue;
+ }
