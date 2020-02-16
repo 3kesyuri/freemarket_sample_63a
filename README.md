@@ -71,7 +71,7 @@
 - belongs_to :product
 
 
-## purchaseテーブル
+## purchasesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
