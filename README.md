@@ -65,7 +65,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false, foreign_key: true|
-|image_1|string|null: false|
+|image|string|null: false|
 
 ### Association
 - belongs_to :product
