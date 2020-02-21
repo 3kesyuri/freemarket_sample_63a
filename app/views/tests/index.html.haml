@@ -1,2 +1,15 @@
 %h1.test_h1 Test page to deploy
 %p this page is used to test operation
+
+=form_for @test do |f|
+    = f.text_field :text
+    = f.file_field :image
+    = f.submit value: "確定"
+
+- if @test_obj.nil? || @test_obj.empty?
+    %p データが存在しません
+- else
+    %ul
+        - @test_obj.each do |obj|
+            %li
+                = image_tag obj.image ,size: "200x200", alt: "出品画像"
