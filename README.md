@@ -96,11 +96,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|null: false|
 
 ### Association
 - has_many :products
-- has_ancestry
 
 
 ## credit_cardsテーブル
