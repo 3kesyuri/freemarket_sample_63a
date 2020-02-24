@@ -1,0 +1,13 @@
+/* 共通のscss,fontawsome */
+ @import "reset/reset";
+ @import "config/colors";
+ @import "mixin/mixins";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+ /* 各ページのSCSS */
+ @import "./mypage";
+ @import "module/mp_side";
+
+
+ 
