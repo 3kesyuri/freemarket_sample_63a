@@ -66,4 +66,4 @@ gem 'haml-rails'
 gem 'pry-rails'
 gem 'fog-aws'
 gem 'devise'
-gem "font-awesome-rails"
+gem 'font-awesome-sass'

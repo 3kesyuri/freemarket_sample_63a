@@ -1,0 +1,43 @@
+.mypage__side{
+   
+  a {
+    color: $font-gray;
+  }
+
+  .side{
+
+    &__wrapper{
+      width: 280px;
+      margin: 0 40px 0 0;
+      float: left;
+    }
+
+    &__title{
+      font-weight:bold;
+
+    }
+
+    &__list{
+      margin: 8px 0 0;
+
+      &--link{
+        background-color: $bg-white;
+        border-top: 1px solid $bdr-gray;
+        
+        a {
+          @include arrow-right();
+          display: block;
+          width: 100%;
+          line-height: 3em;
+          font-size: 14px;
+          position: relative;
+        }
+      }
+      
+      &--link:first-child{
+        border-top: none;
+      }
+
+    }
+  }
+}
