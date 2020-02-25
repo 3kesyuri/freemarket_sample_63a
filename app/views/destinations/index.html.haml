@@ -1,0 +1,57 @@
+.mypage__destination
+  .mypage__destination--inner
+    = render partial: 'users/side'
+
+    .content__wrapper
+      .content__title
+        %h2 発送元・お届け先住所変更
+
+      .content__form--wrapper
+        = form_for [@test], :html => {class: "content__form--from"} do |f|
+
+          .content__form--input
+            %label
+              %p ニックネーム
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+          .content__form--input
+            %label
+              %p 苗字
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+          .content__form--input
+            %label
+              %p 名前
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+          .content__form--input
+            %label
+              %p ふりがな（苗字）
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+          .content__form--input
+            %label
+              %p ふりがな（苗字）
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+          .content__form--input
+            %label
+              %p 郵便番号
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+          .content__form--input
+            %label
+              %p 都道府県
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+              .content__form--input
+            %label
+              %p 市区町村
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+              .content__form--input
+            %label
+              %p 番地
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+              .content__form--input
+            %label
+              %p ビル名
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+              .content__form--input
+            %label
+              %p 電話番号
+              = f.text_field :text, class: "", placeholder: @test_obj.text
+
+          = f.submit class: "content__form--btn", value: "登録する"
