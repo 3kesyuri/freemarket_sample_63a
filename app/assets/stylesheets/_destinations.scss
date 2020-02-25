@@ -39,7 +39,8 @@
          @include required();
          font-weight: bold;
        }
-       input{
+       input,
+       select{
          @include input-default();
          width: 100%;
          margin: 8px 0 0 ;

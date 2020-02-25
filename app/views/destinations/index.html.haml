@@ -15,19 +15,13 @@
               = f.text_field :text, class: "", placeholder: @test_obj.text
           .content__form--input
             %label
-              %p 苗字
+              %p お名前
+              = f.text_field :text, class: "", placeholder: @test_obj.text
               = f.text_field :text, class: "", placeholder: @test_obj.text
           .content__form--input
             %label
-              %p 名前
+              %p フリガナ
               = f.text_field :text, class: "", placeholder: @test_obj.text
-          .content__form--input
-            %label
-              %p ふりがな（苗字）
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-          .content__form--input
-            %label
-              %p ふりがな（苗字）
               = f.text_field :text, class: "", placeholder: @test_obj.text
           .content__form--input
             %label
@@ -36,7 +30,7 @@
           .content__form--input
             %label
               %p 都道府県
-              = f.text_field :text, class: "", placeholder: @test_obj.text
+              = f.collection_select :text, Prefecture.all, :id, :name, prompt: "--", class: 'input'
               .content__form--input
             %label
               %p 市区町村
