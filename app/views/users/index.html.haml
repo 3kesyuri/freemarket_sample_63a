@@ -1,0 +1,10 @@
+-# 仮置きのボタンたち
+
+.user-edit
+  %h7 ユーザーの編集はこちらから 
+  = link_to  edit_user_registration_path(current_user)
+.bottom
+  %h8 ログアウトはこちらから 
+  = link_to "log out", destroy_user_session_path, method: :delete, class: 'btn'
+  %h9 トップページに戻ります
+  = link_to "TOP", root_path, class: 'btn'
