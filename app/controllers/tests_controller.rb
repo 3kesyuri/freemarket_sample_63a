@@ -12,6 +12,9 @@ class TestsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def test_params
     params.require(:test).permit(:text, :image)
   end

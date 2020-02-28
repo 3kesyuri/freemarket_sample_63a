@@ -1,0 +1,61 @@
+@mixin mainwidth() {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+@mixin clearfix() {
+  &::after {
+      content: "";
+      display: block;
+      clear: both;
+  }
+}
+
+@mixin arrow-right(){
+  &::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid;
+    border-color: $bdr-gray-arrow $bdr-gray-arrow transparent transparent;
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    top:50%;
+    right: 0;
+  }
+}
+
+@mixin input-default() {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid $bdr-gray;
+  background: $bg-white;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+@mixin formbtn-default($bkcolor:red,$color: white) {
+  display: block;
+  width: 100%;
+  color: $color;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  background-color: $bkcolor;
+}
+
+@mixin required() {
+  &::after {
+      content: "必須";
+      display: inline-block;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: $font-white;
+      font-size: 12px;
+      vertical-align: top;
+      background-color: $bg-red; 
+  }
+}
