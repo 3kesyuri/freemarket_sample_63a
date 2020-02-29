@@ -2,9 +2,13 @@
 
 .user-edit
   %h7 ユーザーの編集はこちらから 
-  = link_to  edit_user_registration_path(current_user)
+  %p
+    = link_to user_path(current_user.id) do
+      ユーザー編集
 .bottom
   %h8 ログアウトはこちらから 
-  = link_to "log out", destroy_user_session_path, method: :delete, class: 'btn'
+  = link_to destroy_user_session_path,method: :delete, class: 'btn' do
+    ログアウト
   %h9 トップページに戻ります
-  = link_to "TOP", root_path, class: 'btn'
+  = link_to root_path, class: 'btn' do
+    トップに戻る

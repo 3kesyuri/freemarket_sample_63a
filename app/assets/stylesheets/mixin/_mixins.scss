@@ -3,6 +3,11 @@
   margin: 0 auto;
 }
 
+@mixin width-700px() {
+  width: 700px;
+  margin: 0 auto;
+}
+
 @mixin clearfix() {
   &::after {
       content: "";
