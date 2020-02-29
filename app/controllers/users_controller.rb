@@ -10,15 +10,21 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to root_path
+      redirect_user_index
     else
-      render :edit
+      redirect_user_index
     end
     
   end
 
+  private
+
   def user_params
     params.require(:user).permit(:nickname,:family_name,:last_name,:family_name_kana,:last_name_kana,:email)
-    end
+  end
+
+  def redirect_user_index
+    redirect_to user_path(current_user.id)
+  end
 
 end

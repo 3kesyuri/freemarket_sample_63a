@@ -10,13 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200225112858) do
+ActiveRecord::Schema.define(version: 20200229032947) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
     t.string   "city"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "destinations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "family_name",      null: false
+    t.string   "last_name",        null: false
+    t.string   "family_name_kana", null: false
+    t.string   "last_name_kana",   null: false
+    t.integer  "zip_code",         null: false
+    t.string   "prefecture",       null: false
+    t.string   "municipality",     null: false
+    t.string   "address",          null: false
+    t.string   "apartment_name"
+    t.string   "phone_number"
+    t.integer  "user_id",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["user_id"], name: "index_destinations_on_user_id", using: :btree
   end
 
   create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -47,4 +64,5 @@ ActiveRecord::Schema.define(version: 20200225112858) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "destinations", "users"
 end

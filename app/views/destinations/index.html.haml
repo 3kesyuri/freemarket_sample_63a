@@ -7,45 +7,78 @@
         %h2 発送元・お届け先住所変更
 
       .content__form--wrapper
-        = form_for [@test], :html => {class: "content__form--from"} do |f|
+        - if @user_dest.present?
+          = form_for [@user_dest], url: destination_path(current_user.id), :html => {class: "content__form--from"} do |f|
+            .content__form--input
+              %label
+                %p.content__form--required お名前
+                = f.text_field :family_name, class: "", placeholder: @user_dest.family_name
+                = f.text_field :last_name, class: "", placeholder: @user_dest.last_name
+            .content__form--input
+              %label
+                %p.content__form--required フリガナ
+                = f.text_field :family_name_kana, class: "", placeholder: @user_dest.last_name_kana
+                = f.text_field :last_name_kana, class: "", placeholder: @user_dest.last_name_kana
+            .content__form--input
+              %label
+                %p.content__form--required 郵便番号
+                = f.text_field :zip_code, class: "", placeholder: @user_dest.zip_code
+            .content__form--input
+              %label
+                %p.content__form--required 都道府県
+                = f.collection_select :prefecture, Prefecture.all, :name, :name, prompt: `#{@user_dest.prefecture}`, class: 'input'
+                .content__form--input
+              %label
+                %p.content__form--required 市区町村
+                = f.text_field :municipality, class: "", placeholder: @user_dest.municipality
+                .content__form--input
+              %label
+                %p.content__form--required 番地
+                = f.text_field :address, class: "", placeholder: @user_dest.address
+                .content__form--input
+              %label
+                %p ビル名
+                = f.text_field :apartment_name, class: "", placeholder: @user_dest.apartment_name
+                .content__form--input
+              %label
+                %p 電話番号
+                = f.text_field :phone_number, class: "", placeholder: @user_dest.phone_number
+            = f.submit class: "content__form--btn", value: "編集する"
 
-          .content__form--input
-            %label
-              %p ニックネーム
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-          .content__form--input
-            %label
-              %p お名前
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-          .content__form--input
-            %label
-              %p フリガナ
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-          .content__form--input
-            %label
-              %p 郵便番号
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-          .content__form--input
-            %label
-              %p 都道府県
-              = f.collection_select :text, Prefecture.all, :id, :name, prompt: "--", class: 'input'
-              .content__form--input
-            %label
-              %p 市区町村
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-              .content__form--input
-            %label
-              %p 番地
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-              .content__form--input
-            %label
-              %p ビル名
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-              .content__form--input
-            %label
-              %p 電話番号
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-
-          = f.submit class: "content__form--btn", value: "登録する"
+        - else
+          = form_for [@destination], :html => {class: "content__form--from"} do |f|
+            .content__form--input
+              %label
+                %p お名前
+                = f.text_field :family_name, class: "", placeholder: "例）山田"
+                = f.text_field :last_name, class: "", placeholder: "例）太郎"
+            .content__form--input
+              %label
+                %p フリガナ
+                = f.text_field :family_name_kana, class: "", placeholder: "例）ヤマダ"
+                = f.text_field :last_name_kana, class: "", placeholder: "例）タロウ"
+            .content__form--input
+              %label
+                %p 郵便番号
+                = f.text_field :zip_code, class: "", placeholder: "例）0004567(”ー”なしで入力)"
+            .content__form--input
+              %label
+                %p 都道府県
+                = f.collection_select :prefecture, Prefecture.all, :name, :name, prompt: "--", class: 'input'
+                .content__form--input
+              %label
+                %p 市区町村
+                = f.text_field :municipality, class: "", placeholder: "例）山田市山田町"
+                .content__form--input
+              %label
+                %p 番地
+                = f.text_field :address, class: "", placeholder: "例）12-5, 12番5号"
+                .content__form--input
+              %label
+                %p ビル名
+                = f.text_field :apartment_name, class: "", placeholder: "例）ヤマダハイツ　808号室"
+                .content__form--input
+              %label
+                %p 電話番号
+                = f.text_field :phone_number, class: "", placeholder: "例）0991234567"
+            = f.submit class: "content__form--btn", value: "登録する"
