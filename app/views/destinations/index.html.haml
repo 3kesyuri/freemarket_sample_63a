@@ -9,7 +9,7 @@
       .content__form--wrapper
         - if @user_dest.present?
           = form_for [@user_dest], url: destination_path(current_user.id), :html => {class: "content__form--from"} do |f|
-            .content__form--input
+            .content__form--input.first
               %label
                 %p.content__form--required お名前
                 = f.text_field :family_name, class: "", placeholder: @user_dest.family_name
