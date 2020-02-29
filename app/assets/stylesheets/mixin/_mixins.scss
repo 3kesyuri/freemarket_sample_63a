@@ -64,3 +64,16 @@
       background-color: $bg-red; 
   }
 }
+
+@mixin login-link(){
+  margin:20px 0 0;
+}
+
+@mixin logo($width:700px,$height:128px){
+  width: $width;
+  height: $height;
+  margin:0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

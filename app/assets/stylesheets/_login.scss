@@ -1,13 +1,27 @@
 // 会員登録
-.signin{
+.signup,
+.login{
   background-color: $bg-gray;
+  color: $font-gray2;
+
+  .logo{
+    &__wrapper{
+      @include logo();
+    }
+  }
 
   .content{
-
     &__wrapper{
       @include width-700px();
       background-color: $bg-white;
     }
+  }
+
+}
+
+.signup{
+
+  .content{
 
     &__title{
       padding: 8px 24px;
@@ -39,55 +53,64 @@
          margin: 8px 0 0 ;
        }
       }
+
+      &--input.first{
+        margin-top: 0;
+      }
+
       &--btn{
         @include formbtn-default(); 
         margin: 40px 0 0 ;
       }
     }
   }
+
+  .login__link{
+    @include login-link();
+  }
 }
 
 // ログインページ
 .login{
-  background-color: $bg-gray;
+  height: 100%;
+  font-size: 14px;
+
 
   .content{
 
-    &__wrapper{
-      @include width-700px();
-      background-color: $bg-white;
-    }
+    &__signup{
 
-    &__title{
-      padding: 8px 24px;
-      font-size: 24px;
-      text-align: center;
-      border-bottom: 1px solid $bdr-gray;
+      &--wrapper{
+        padding:40px 170px 64px;
+        text-align: center;
+        border-bottom: 1px solid $bdr-gray;
+      }
 
-      h2{
-        font-weight: bold;
+      &--link{
+        @include formbtn-default($bkcolor:#0099e8,$color: white);
+        margin: 8px 0 0;
       }
     }
 
     &__form{
 
       &--wrapper{
-        padding: 40px 170px 64px;
+        padding: 32px 170px 64px;
         font-size: 14px;
       }
 
       &--input{
         margin: 40px 0 0;
-       p{
-         @include required();
-         font-weight: bold;
-       }
        input{
          @include input-default();
          width: 100%;
-         margin: 8px 0 0 ;
        }
       }
+
+      &--input.first{
+        margin-top: 0;
+      }
+
       &--btn{
         @include formbtn-default(); 
         margin: 40px 0 0 ;
