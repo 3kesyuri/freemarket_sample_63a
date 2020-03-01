@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def redirect_user_index
+    redirect_to user_path(current_user.id)
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :last_name, :family_name_kana, :last_name_kana, :birth_year, :birth_month, :birth_day])

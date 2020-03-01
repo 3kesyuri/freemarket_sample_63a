@@ -35,11 +35,7 @@ class DestinationsController < ApplicationController
   end
 
   def set_user_destination
-    @user_dest = Destination.find_by(user_id: current_user)
-  end
-
-  def redirect_user_index
-    redirect_to user_path(current_user.id)
+    @user_dest = Destination.find_by(user_id: current_use.idr)
   end
 
   def redirect_user_dest_index
