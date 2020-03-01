@@ -44,7 +44,6 @@
       &--input{
         margin: 40px 0 0;
        p{
-         @include required();
          font-weight: bold;
        }
        input{
@@ -56,6 +55,10 @@
 
       &--input.first{
         margin-top: 0;
+      }
+
+      &--required{
+        @include required();
       }
 
       &--btn{
