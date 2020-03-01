@@ -4,7 +4,7 @@ class DestinationsController < ApplicationController
   def index
 
     if @user_dest.present?
-     
+
     else
       @destination = Destination.new
     end
@@ -12,6 +12,7 @@ class DestinationsController < ApplicationController
 
   def create
     @destination = Destination.new(destination_params)
+
     if @destination.save
       redirect_user_index
     else
@@ -23,7 +24,7 @@ class DestinationsController < ApplicationController
     if @user_dest.update(destination_params)
       redirect_user_index
     else
-      rredirect_user_dest_index
+      redirect_user_dest_index
     end
   end
 
