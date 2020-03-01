@@ -60,7 +60,7 @@
             .content__form--input
               %label
                 %p 郵便番号
-                = f.text_field :zip_code, class: "", placeholder: "例）0004567(「ー」なしで入力。半角数字のみ)"
+                = f.text_field :zip_code, class: "", placeholder: "例）0004567(「ー」なし。半角数字のみ)"
             .content__form--input
               %label
                 %p 都道府県
@@ -80,5 +80,5 @@
                 .content__form--input
               %label
                 %p 電話番号
-                = f.text_field :phone_number, class: "", placeholder: "例）0991234567。（「ー」なしで入力。半角数字のみ）"
+                = f.text_field :phone_number, class: "", placeholder: "例）0991234567（「ー」なし。半角数字のみ）"
             = f.submit class: "content__form--btn", value: "登録する"

@@ -1,10 +1,25 @@
 -# 仮置きのボタンたち
 
 .user-edit
-  %h7 ユーザーの編集はこちらから 
-  %p
-    = link_to user_path(current_user.id) do
-      ユーザー編集
+  %h7 ユーザーの編集（またはログイン）はこちらから。※ユーザーマイページはログイン必須。
+  - if user_signed_in?
+    %p
+      = link_to user_path(current_user.id) do
+        ユーザーマイページ
+    %p
+      = link_to new_user_registration_path do
+        新規登録
+    %p
+      = link_to new_user_session_path do
+        ログイン
+  - else
+    %p
+      = link_to new_user_registration_path do
+        新規登録
+    %p
+      = link_to new_user_session_path do
+        ログイン
+
 .bottom
   %h8 ログアウトはこちらから 
   = link_to destroy_user_session_path,method: :delete, class: 'btn' do
