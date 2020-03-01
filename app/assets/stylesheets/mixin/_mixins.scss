@@ -3,6 +3,11 @@
   margin: 0 auto;
 }
 
+@mixin width-700px() {
+  width: 700px;
+  margin: 0 auto;
+}
+
 @mixin clearfix() {
   &::after {
       content: "";
@@ -22,7 +27,7 @@
     transform: rotate(45deg) translateY(-50%);
     position: absolute;
     top:50%;
-    right: 20px;
+    right: 0;
   }
 }
 
@@ -58,4 +63,17 @@
       vertical-align: top;
       background-color: $bg-red; 
   }
+}
+
+@mixin login-link(){
+  margin:20px 0 0;
+}
+
+@mixin logo($width:700px,$height:128px){
+  width: $width;
+  height: $height;
+  margin:0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
