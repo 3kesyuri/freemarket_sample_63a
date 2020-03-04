@@ -2,10 +2,11 @@
  @import "reset/reset";
  @import "config/colors";
  @import "mixin/mixins";
+ @import "mixin/mixin";
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
  /* 各ページのSCSS */
  @import "./mypage";
  @import "module/mp_side";
- @import "products"
+ @import "products";
