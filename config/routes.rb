@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :tests, only: [:index, :create]
   resources :destinations, only: [:create, :update]
   resources :users, only: [:show, :update] do
-    resources :credits, only: [:index,:new]
     resources :destinations, only: [:index]
+    resources :credits, only: [:new, :show],shallow: true
   end
+
+  
+
+  
+
 end
