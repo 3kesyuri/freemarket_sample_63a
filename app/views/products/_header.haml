@@ -1,0 +1,23 @@
+.top-page-header
+  .top-page-header__inner
+    .top-page-header__inner__main
+      .top-page-header__inner__main__icon
+        = image_tag "logo.png", width: "140px"
+      .top-page-header__inner__main__search-box
+        = form_for "#" do |f|
+          .top-page-header__inner__main__search-box__input
+            = f.text_field :content, class: 'top-page-header__inner__main__search-box', placeholder: ' キーワードから探す'
+          .top-page-header__inner__main__search-box__submit
+            .top-page-header__inner__main__search-box__submit__icon
+              = image_tag "icon-search 1.png", width: "20px"
+    .top-page-header__navi
+      .top-page-header__navi__left
+        .top-page-header__navi__left__category
+          カテゴリー
+        .top-page-header__navi__left__brand
+          ブランド
+      .top-page-header__navi__right
+        .top-page-header__navi__right__login
+          ログイン
+        .top-page-header__navi__right__signup
+          新規会員登録

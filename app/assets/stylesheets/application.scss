@@ -2,6 +2,7 @@
  @import "reset/reset";
  @import "config/colors";
  @import "mixin/mixins";
+ @import "mixin/mixin";
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
@@ -10,6 +11,4 @@
  @import "./destinations";
  @import "./login";
  @import "module/mp_side";
-
-
- 
+ @import "products";
