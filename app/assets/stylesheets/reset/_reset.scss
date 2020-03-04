@@ -12,6 +12,7 @@
 html{
   color:#000;
   background:#FFF;
+  height: 100%;
 }
 /*
   TODO remove settings on BODY since we can't namespace it.
@@ -26,6 +27,7 @@ html{
 
 body{
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  height: 100%;
 }
 
 a{

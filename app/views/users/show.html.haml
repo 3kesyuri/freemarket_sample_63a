@@ -13,36 +13,26 @@
           %br
           登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
 
-        = form_for [@test], :html => {class: "content__form--from"} do |f|
+        = form_for [@user], :html => {class: "content__form--from"} do |f|
 
           .content__form--input
             %label
               %p ニックネーム
-              = f.text_field :text, class: "", placeholder: @test_obj.text
+              = f.text_field :nickname, class: "", placeholder: @user.nickname
           .content__form--input
             %label
-              %p 苗字
-              = f.text_field :text, class: "", placeholder: @test_obj.text
+              %p お名前
+              = f.text_field :family_name, class: "", placeholder: @user.family_name
+              = f.text_field :last_name, class: "", placeholder: @user.last_name
           .content__form--input
             %label
-              %p 名前
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-          .content__form--input
-            %label
-              %p ふりがな（苗字）
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-          .content__form--input
-            %label
-              %p ふりがな（苗字）
-              = f.text_field :text, class: "", placeholder: @test_obj.text
+              %p フリガナ
+              = f.text_field :family_name_kana, class: "", placeholder: @user.family_name_kana
+              = f.text_field :last_name_kana, class: "", placeholder: @user.last_name_kana
           .content__form--input
             %label
               %p メールアドレス
-              = f.text_field :text, class: "", placeholder: @test_obj.text
-          .content__form--input
-            %label
-              %p パスワード（いらないと思う）
-              = f.text_field :text, class: "", placeholder: @test_obj.text
+              = f.text_field :email, class: "", placeholder: @user.email
           = f.submit class: "content__form--btn", value: "登録する"
         
 
