@@ -18,6 +18,8 @@
           ブランド
       .top-page-header__navi__right
         .top-page-header__navi__right__login
-          ログイン
+          =link_to new_user_session_path do
+            ログイン
         .top-page-header__navi__right__signup
-          新規会員登録
+          =link_to new_user_registration_path do
+            新規登録
