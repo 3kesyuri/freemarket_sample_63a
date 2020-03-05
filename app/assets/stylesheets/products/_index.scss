@@ -1,0 +1,271 @@
+.top-page-main {
+  background-color: $bg-gray;
+  margin: 0;
+  padding: 0;
+  &__visual {
+    width: 100%;
+    height: 560px;
+    background-image: url(bg-mainVisual-pict_pc.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    &__picture {
+      position: absolute;
+      top: 0;
+    }
+    &__content {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 35px 0 0 0;
+      position: relative;
+      &__subtitle {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 60px;
+        line-height: 1.2;
+        color: $font-white;
+        position: absolute;
+        box-sizing: border-box;
+      }
+      &__text {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 18px;
+        line-height: 1.77778;
+        color: $font-white;
+        margin: 16px 0 0 0;
+        position: absolute;
+        top: 300%;
+        text-align: left;
+      }
+    }
+  }
+  &__introduction {
+    padding: 60px 20px;
+    &__subtitle {
+      text-align: center;
+      font-size: 26px;
+      line-height: 1.4;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+    }
+    &__lists {
+      text-align: center;
+      display: flex;
+      max-width: 1020px;
+      width: 100%;
+      margin: 0 auto;
+      &__1 {
+        @include introduction_lists();
+        &__pic {
+          @include introduction_lists_pic();
+          &__number {
+            @include introduction_lists_pic_number();
+          }
+        }
+        &__text {
+          @include introduction_lists_text();
+        }
+        &__description {
+          @include introduction_lists_description();
+        }
+      }
+      &__2 {
+        @include introduction_lists();
+        &__pic {
+          @include introduction_lists_pic();
+          &__number {
+            @include introduction_lists_pic_number();
+          }
+        }
+        &__text {
+          @include introduction_lists_text();
+        }
+        &__description {
+          @include introduction_lists_description();
+        }
+      }
+      &__3 {
+        @include introduction_lists();
+        &__pic {
+          @include introduction_lists_pic();
+          &__number {
+            @include introduction_lists_pic_number();
+          }
+        }
+        &__text {
+          @include introduction_lists_text();
+        }
+        &__description {
+          @include introduction_lists_description();
+        }
+      }
+    }
+  }
+  &__middle {
+    position: relative;
+    &__picture {
+      background-image: url(bg-topMiddleDl-pict.jpg);
+      background-position: bottom left;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 400px;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+    }
+    &__inner {
+      color: $font-white;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-align: left;
+      max-width: 1040px;
+      width: 100%;
+      margin: 0 auto;
+      &__subtitle {
+        color: $font-white;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 27px;
+        font-weight: bold;
+        line-height: 1.4;
+        position: absolute;
+        top: 100px;
+        left: 200px;
+      }
+      &__text {
+        color: $font-white;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 18px;
+        margin: 20px 0 30px;
+        line-height: 1.5;
+        position: absolute;
+        top: 150px;
+        left: 200px;
+      }
+    }
+  }
+  &__features {
+    padding: 60px 100px;
+    background-color: $bg-white;
+    &__head {
+      font-size: 27px;
+      text-align: center;
+      margin: 0 0 40px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+    }
+    &__items {
+      max-width: calc(1040px + 20px);
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      &__1 {
+        @include features_items();
+        &__img {
+          @include features_items_img();
+        }
+        &__subtitle {
+          @include features_items_subtitle();
+        }
+        &__detail {
+          @include features_items_detail();
+        }
+      }
+      &__2 {
+        @include features_items();
+        &__img {
+          @include features_items_img();
+        }
+        &__subtitle {
+          @include features_items_subtitle();
+        }
+        &__detail {
+          @include features_items_detail();
+        }
+      }
+      &__3 {
+        @include features_items();
+        &__img {
+          @include features_items_img();
+        }
+        &__subtitle {
+          @include features_items_subtitle();
+        }
+        &__detail {
+          @include features_items_detail();
+        }
+      }
+    }
+  }
+  &__pickup-catgory {
+    @include pickup();
+    &__head {
+      @include pickup_head();
+    }
+    &__box {
+      @include pickup_box();
+      &__title {
+        @include pickup_box_title();
+      }
+      &__lists {
+        @include pickup_box_lists();
+        &_img {
+          @include pickup_box_list_img();
+        }
+      }
+    }
+  }
+  &__pickup-brand {
+    @include pickup();
+    &__head {
+      @include pickup_head();
+    }
+    &__box {
+      @include pickup_box();
+      &__title {
+        @include pickup_box_title();
+      }
+      &__lists {
+        @include pickup_box_lists();
+        &_img {
+          @include pickup_box_list_img();
+        }
+      }
+    }
+  }
+  &__app-banner {
+    background-image: url(bg-appBanner-pict.jpg);
+    width: 100%;
+    height: 370px;
+    padding: 100px 40px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    &__inner {
+      color: $font-white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      &__title {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      &__text {
+        font-size: 35px;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      }
+    }
+  }
+}
+

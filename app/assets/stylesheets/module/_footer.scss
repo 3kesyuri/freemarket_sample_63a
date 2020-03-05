@@ -1,0 +1,46 @@
+.top-page-footer {
+  padding: 60px 0;
+  color: $font-white;
+  background-color: $bg-black;
+  text-align: center;
+  &__contents {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    &__content1 {
+      @include footer_contents_content();
+      &__head {
+        @include footer_contents_head();
+      }
+      &__li {
+        @include footer_contents_li();
+      }
+    }
+    &__content2 {
+      @include footer_contents_content();
+      &__head {
+        @include footer_contents_head();
+      }
+      &__li {
+        @include footer_contents_li();
+      }
+    }
+    &__content3 {
+      @include footer_contents_content();
+      &__head {
+        @include footer_contents_head();
+      }
+      &__li {
+        @include footer_contents_li();
+      }
+    }
+    &__contents__logo {
+      max-width: 160px;
+      width: 100%;
+      margin: 0 auto;
+      &__contents__logo {
+        font-size: 14px;
+      }
+    }
+  }
+}
