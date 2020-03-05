@@ -17,9 +17,17 @@
         .top-page-header__navi__left__brand
           ブランド
       .top-page-header__navi__right
-        .top-page-header__navi__right__login
-          =link_to new_user_session_path do
-            ログイン
-        .top-page-header__navi__right__signup
-          =link_to new_user_registration_path do
-            新規登録
+        - if user_signed_in?
+          .top-page-header__navi__right__mypage
+            =link_to user_path(current_user.id) do
+              マイページ
+          .top-page-header__navi__right__logout
+            =link_to destroy_user_session_path,method: :delete do
+              ログアウト
+        -else
+          .top-page-header__navi__right__login
+            =link_to new_user_session_path do
+              ログイン
+          .top-page-header__navi__right__signup
+            =link_to new_user_registration_path do
+              新規登録
