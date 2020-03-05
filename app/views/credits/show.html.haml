@@ -1,3 +1,4 @@
+= render "shared/header"
 .mypage__credit--show
   
   .mypage__credit--inner
@@ -23,3 +24,5 @@
         = form_tag("#", method: :post) do
           = text_field_tag "card_id", "", type: "hidden"
           = submit_tag "削除する", class: "content__show--btn"
+
+= render "shared/footer"

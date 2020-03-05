@@ -1,4 +1,6 @@
+= render "shared/header"
 .mypage__credit--new
+
   .mypage__credit--inner
     = render partial: 'users/side'
 
@@ -52,3 +54,5 @@
               %p.content__form--required セキュリティコードコード
               = text_field_tag "cvc", "", placeholder: "カード背面3~4桁の番号"
           = submit_tag "登録する", class: "content__form--btn"
+
+= render "shared/footer"
