@@ -1,8 +1,7 @@
 class CreditsController < ApplicationController
 
   def new
-    if set_credit_id.nil?
-    else
+    if !set_credit_id.nil?
       set_credit_id
       redirect_to credit_path(@credit.id)
     end
