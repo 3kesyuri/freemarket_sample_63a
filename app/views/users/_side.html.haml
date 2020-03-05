@@ -10,8 +10,8 @@
           =link_to user_destinations_path(current_user.id) do
             お届け先住所登録
         %li.side__list--link
-          =link_to user_credits_path(current_user.id) do
-            クレジットカード
+          =link_to new_user_credit_path(current_user.id) do
+            クレジットカード 登録
         %li.side__list--link
           = link_to destroy_user_session_path,method: :delete, class: 'btn' do
             ログアウト
