@@ -2,7 +2,8 @@
   .top-page-header__inner
     .top-page-header__inner__main
       .top-page-header__inner__main__icon
-        = image_tag "logo.png", width: "140px"
+        =link_to root_path do
+          = image_tag "logo.png", width: "140px"
       .top-page-header__inner__main__search-box
         = form_for "#" do |f|
           .top-page-header__inner__main__search-box__input
