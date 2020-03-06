@@ -1,0 +1,164 @@
+.puroducts__new {
+  
+  background-color: $bg-gray;
+  color: $font-gray2;
+
+  .logo{
+    &__wrapper{
+      @include logo();
+    }
+  }
+
+  .content {
+
+    &__wrapper{
+      background-color: $bg-white;
+    }
+
+    &__product {
+      &--wrapper{
+        padding: 16px;
+        font-size: 14px;
+      }
+
+      &--section {
+        @include heading-default();
+     }
+
+      &--image-attention,
+      &--description-attention {
+        span {
+          font-weight: normal;
+        }
+      }
+
+      &--image {
+        position: relative;
+        background-color: rgb(245, 245, 245);
+        height: 112px;
+        margin-top: 8px;
+        flex: 1 1 0%;
+        padding: 0px 4px;
+        border-width: 1px;
+        border-style: dashed;
+        border-color: rgb(204, 204, 204);
+        border-image: initial;
+        transition: all 0.5s ease-out 0s;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+
+      &--image-file {
+        font-size: 25px;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        cursor: pointer;
+      }
+
+      &--image-icon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        margin: auto;
+      }
+
+      &--hidden {
+        display: none;
+      }
+      
+      &--name{
+        border-top: 1px solid $bdr-gray;
+      }
+
+
+      &--section-title {
+        @include section-title();
+      }
+
+      &--price {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+      }
+
+      &--yen {
+        margin: 5px;
+      }
+
+      &--fee {
+        @include accounting();
+      }
+
+      &--profit {
+        @include accounting();
+        border-top: 1px solid $bdr-gray;
+        padding-top: 16px;
+      }
+
+      &--btn {
+        @include productbtn-default();
+        background-color: red;
+        color: white;
+        margin-bottom: 24px;
+      }
+
+      &--btn-return {
+        @include productbtn-default();
+        background-color: rgb(180, 179, 179);
+        margin: 0px auto 24px;
+
+      }
+
+    }
+
+    &__form {
+      &--required{
+        @include required();
+      }
+
+      &--optional {
+        @include optional();
+      }
+    }
+  }
+  #product_name {
+    @include form-default();
+    height: 48px;
+    
+  }
+
+  #product_description {
+    @include form-default();
+    height: 100px;
+  }
+
+  #product_category_id,
+  #product_delivery_charge,
+  #product_delivery_origin,
+  #product_shipping_date  {
+    @include form-selectbox();
+    margin-bottom: 30px;
+  }
+
+  #product_brand_id {
+    @include form-default();
+    margin-bottom: 30px;
+    height: 48px;
+  }
+
+  #product_condition{
+    @include form-selectbox();
+  }
+
+  #product_price {
+    order: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    height: 48px;
+    text-align: right;
+    width: 150px;
+  }
+}
