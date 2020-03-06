@@ -109,7 +109,7 @@
         @include productbtn-default();
         background-color: rgb(180, 179, 179);
         margin: 0px auto 24px;
-
+        color: black;
       }
 
     }
@@ -127,12 +127,14 @@
   #product_name {
     @include form-default();
     height: 48px;
+    padding: 13px 16px;
     
   }
 
   #product_description {
     @include form-default();
     height: 100px;
+    padding: 13px 16px;
   }
 
   #product_category_id,

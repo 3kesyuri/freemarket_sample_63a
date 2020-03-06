@@ -73,6 +73,6 @@
             %br/
             %span ¥ 300
         = f.submit class: "content__product--btn", value: "出品する"
-        = f.submit class: "content__product--btn-return", value: "もどる"
+        = link_to "トップページにもどる", root_path, class: "content__product--btn-return"
         .content__product--section-prohibited
           %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
