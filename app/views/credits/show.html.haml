@@ -1,0 +1,29 @@
+= render "shared/header"
+.mypage__credit--show
+  
+  .mypage__credit--inner
+    = render partial: 'users/side'
+
+    .content__wrapper
+      .content__title
+        %h2 ご登録のクレジットカード
+
+      .content__show--wrapper
+        .content__show--box.first
+          %p.content__show--title カード番号
+          %p "**** **** **** " 0000
+        
+        .content__show--box
+          %p.content__show--title 有効期限
+          .content__show--term
+            %p 8
+            %p 月
+            %p 20
+            %p 年
+
+        = form_tag("#", method: :post) do
+          = text_field_tag "card_id", "", type: "hidden"
+          = submit_tag "削除する", class: "content__show--btn"
+
+= render "shared/footer"
+= render "shared/purchase-btn"

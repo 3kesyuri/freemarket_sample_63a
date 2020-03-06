@@ -1,0 +1,136 @@
+
+.mypage__credit{
+
+//マイページ　クレジットカード共通
+  &--inner{
+    @include mainwidth();
+    @include clearfix();
+    padding:40px 0 40px;
+  }
+
+  &--new,
+  &--show{
+    height: 100%;
+    background-color: $bg-gray;
+
+    .content{
+      &__wrapper{
+        float: right;
+        width: 700px;
+        background-color: $bg-white;
+      }
+
+      &__title{
+        padding: 8px 24px;
+        font-size: 24px;
+        text-align: center;
+        border-bottom: 1px solid $bdr-gray;
+  
+        h2{
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  
+//マイページ　クレジットカード新規登録用CSS
+  &--new{
+
+    .content{
+      
+      &__form{
+
+        &--wrapper{
+          padding: 40px 170px 64px;
+          font-size: 14px;
+        }
+
+        &--input{
+          margin: 40px 0 0;
+         p{
+          
+           font-weight: bold;
+         }
+         input{
+           @include input-default();
+           width: 100%;
+           margin: 8px 0 0 ;
+         }
+         
+        }
+        &--input.first{
+          margin-top: 0px;
+        }
+        
+        &--select{
+          display: flex;
+          select{
+            @include input-default();
+            width: 35%;
+            margin: 8px 0 0;
+           }
+
+        }
+        &--age,
+        &--month{
+          width: 15%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &--required{
+          @include required();
+        }
+
+        &--btn{
+          @include formbtn-default(); 
+          margin: 40px 0 0 ;
+        }
+      }
+    }
+  }
+
+  //クレジットカード参照用CSS
+
+  &--show{
+    .content{
+
+      &__show{
+
+        &--wrapper{
+          padding: 40px 170px 64px;
+          font-size: 20px;
+        }
+
+        &--box{
+          margin: 40px 0 0;
+          line-height: 1.5em;
+        }
+
+        &--box.first{
+          margin-top: 0px;
+        }
+
+        &--title{
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        &--term{
+          display: flex;
+          p{
+            margin: 0 5% 0 0;
+          }
+        }
+
+        &--btn{
+          @include formbtn-default(); 
+          margin: 40px 0 0 ;
+        }
+
+      }
+    }
+  }
+}

@@ -1,3 +1,5 @@
+= render "shared/header"
+
 .mypage__destination
   .mypage__destination--inner
     = render partial: 'users/side'
@@ -82,3 +84,6 @@
                 %p 電話番号
                 = f.text_field :phone_number, class: "", placeholder: "例）0991234567（「ー」なし。半角数字のみ）"
             = f.submit class: "content__form--btn", value: "登録する"
+
+= render "shared/footer"
+= render "shared/purchase-btn"

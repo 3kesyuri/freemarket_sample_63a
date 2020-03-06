@@ -3,15 +3,19 @@
  @import "config/colors";
  @import "mixin/mixins";
  @import "mixin/mixins2";
+ @import "mixin/mixin";
  @import "font-awesome-sprockets";
  @import "font-awesome";
+ @import "module/mp_side";
+ @import "module/header";
+ @import "module/footer";
+ @import "module/purchase_btn";
 
  /* 各ページのSCSS */
- @import "./mypage";
- @import "./destinations";
+ @import "mypage/mypage";
+ @import "mypage/destinations";
+ @import "mypage/credit";
  @import "./login";
- @import "module/mp_side";
  @import "./products/new";
+ @import "products/index";
 
-
- 

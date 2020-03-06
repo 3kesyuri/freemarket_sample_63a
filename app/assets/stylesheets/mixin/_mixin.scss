@@ -1,0 +1,130 @@
+@mixin navi_position() {
+  position: relative;
+  display: flex;
+}
+@mixin navi_right_position() {
+  line-height: 38px;
+  padding: 0 0 0 16px;
+}
+
+@mixin introduction_lists() {
+  width: 30%;
+  margin: 16px 5% 0 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@mixin introduction_lists_pic() {
+  position: relative;
+  margin-bottom: 20px;
+}
+@mixin introduction_lists_pic_number() {
+  display: inline-block;
+  position: absolute;
+  top: 10;
+  left: 0;
+  border-radius: 4%;
+  font-size: 30px;
+  text-align: center;
+  margin: 0 5px 0 0 ;
+  padding: 10px 20px;
+  background-color: $bg-blue;
+  color: $font-white;
+}
+@mixin introduction_lists_text() {
+  font-weight: bold;
+  font-size: 24px;
+  color: $font-blue;
+  line-height: 50px;
+  margin: 0 0 0 2px;
+}
+@mixin introduction_lists_description() {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 16px 0 0;
+  padding: 0;
+  text-align: left;
+}
+
+@mixin features_items() {
+  display: flex;
+  flex-direction: column;
+  width: calc(1 / 3 * 100%);
+  text-align: center;
+  padding: 0 20px;
+}
+@mixin features_items_img() {
+  width: 100%;
+  margin: 0 auto;
+  line-height: 120px;
+  text-align: center;
+}
+@mixin features_items_subtitle() {
+  margin: 38px 0 10px;
+  font-size: 19px;
+  font-weight: bold;
+}
+@mixin features_items_detail() {
+  margin: 0 0 40px;
+  font-size: 17px;
+  font-weight: 200;
+  text-align: left;
+}
+@mixin pickup() {
+  padding: 80px 0 0;
+  background-color: $bg-gray;
+  height: 100%;
+  box-sizing: border-box;
+}
+@mixin pickup_head() {
+  text-align: center;
+  font-size: 28px;
+  line-height: 1.4;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+@mixin pickup_box() {
+  margin: 0;
+  padding: 0;
+}
+@mixin pickup_box_title() {
+  font-size: 24px!important;
+  color: $font-blue;
+  font-weight: bold;
+  font-size: 100%;
+  text-align: center;
+}
+@mixin pickup_box_lists() {
+  width: 780px;
+  margin: 26px auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+@mixin pickup_box_list_img() {
+  width: 220px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  z-index: auto;
+}
+@mixin footer_contents_content() {
+  display: flex;
+  flex-direction: column;
+  width: calc(1 / 3 * 100%);
+  margin: 0 2% 0 0;
+}
+@mixin footer_contents_head() {
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+@mixin footer_contents_li() {
+  color: $font-white;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 32px;
+}

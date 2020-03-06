@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
+
   before_action :authenticate_user!
 
-
+  def index
+  end
+  
   def new
     @product = Product.new
     render layout: 'application'
@@ -9,5 +12,6 @@ class ProductsController < ApplicationController
 
   def create
   end
+
 
 end

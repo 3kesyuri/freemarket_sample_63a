@@ -1,3 +1,5 @@
+= render "shared/header"
+
 .mypage__show
   .mypage__show--inner
     = render partial: 'side'
@@ -34,5 +36,6 @@
               %p メールアドレス
               = f.text_field :email, class: "", placeholder: @user.email
           = f.submit class: "content__form--btn", value: "登録する"
-        
 
+= render "shared/footer"
+= render "shared/purchase-btn"
