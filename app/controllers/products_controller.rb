@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
 
-  before_action :authenticate_user!
+
 
   def index
   end
   
   def new
+    authenticate_user!
     @product = Product.new
     render layout: 'application'
   end

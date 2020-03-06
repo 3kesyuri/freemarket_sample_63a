@@ -12,6 +12,7 @@
   .content {
 
     &__wrapper{
+      @include width-700px;
       background-color: $bg-white;
     }
 
