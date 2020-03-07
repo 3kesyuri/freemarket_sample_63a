@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :tests, only: [:index, :create]
   resources :destinations, only: [:create, :update]
   resources :products, only: [:index, :new, :create]
-  resources :users, only: [:show, :update] do
+  resources :users, only: [:show, :edit, :update] do
     resources :destinations, only: [:index]
     resources :credits, only: [:new, :show],shallow: true
   end

@@ -5,7 +5,10 @@
       %ul
         %li.side__list--link
           =link_to user_path(current_user.id) do
-            プロフィール
+            マイページ
+        %li.side__list--link
+          =link_to edit_user_path(current_user.id) do
+            本人情報確認
         %li.side__list--link
           =link_to user_destinations_path(current_user.id) do
             お届け先住所登録

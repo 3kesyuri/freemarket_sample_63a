@@ -1,6 +1,6 @@
 /* 共通のscss,fontawsome */
- @import "reset/reset";
- @import "config/colors";
+@import "config/colors"; 
+@import "reset/reset";
  @import "mixin/mixins";
  @import "mixin/mixins2";
  @import "mixin/mixin";
@@ -12,9 +12,11 @@
  @import "module/purchase_btn";
 
  /* 各ページのSCSS */
- @import "mypage/mypage";
+ @import "mypage/edit";
  @import "mypage/destinations";
  @import "mypage/credit";
+ @import "mypage/show";
+
  @import "./login";
  @import "./products/new";
  @import "products/index";

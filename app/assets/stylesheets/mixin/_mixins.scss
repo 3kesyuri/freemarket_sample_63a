@@ -16,7 +16,7 @@
   }
 }
 
-@mixin arrow-right(){
+@mixin arrow-right($top:50%,$right:0){
   &::after {
     content: "";
     display: block;
@@ -26,8 +26,8 @@
     border-color: $bdr-gray-arrow $bdr-gray-arrow transparent transparent;
     transform: rotate(45deg) translateY(-50%);
     position: absolute;
-    top:50%;
-    right: 0;
+    top:$top;
+    right: $right;
   }
 }
 
