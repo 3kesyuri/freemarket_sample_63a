@@ -28,12 +28,6 @@ class Destination < ApplicationRecord
   
   validates :municipality,
   presence: true
-  
-  validates :address,
-  presence: true
-  
-  validates :phone_number,
-  length: {minimum: 10, maximum: 15}, 
-  format: {with: /\A[0-9]+\z/}
+
  
 end
