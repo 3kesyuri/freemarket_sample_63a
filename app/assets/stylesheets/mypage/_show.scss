@@ -1,0 +1,114 @@
+.mypage__show{
+  padding:40px 0 40px;
+  background-color: $bg-gray;
+
+  &--inner{
+    @include mainwidth();
+    @include clearfix();
+  }
+
+  .content{
+
+    &__wrapper{
+      @include width-700px();
+      float: right;
+      
+
+      .section{
+        &__block--01{
+          background-color: $bg-white;
+  
+        }
+
+        &__block--02{
+          margin-top: 30px;
+          background-color: $bg-white;
+        }
+  
+        &__head{
+          padding: 20px;
+  
+          &--img{
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            border-radius: 50%;
+
+            img{
+              width: 60px;
+              height: 60px;
+            }
+          }
+
+          &--nickname{
+            display: flex;
+            justify-content: center;
+          }
+
+          &--txt-wrap{
+            ul{
+            display: flex;
+            justify-content: center;
+              
+             li{
+               margin:0 0 0 10px;
+             }
+
+             li:first-child{
+              margin-left: 0;
+             }
+            }
+          }
+        }
+
+        &__titile{
+          padding: 20px;
+          text-align: center;
+          font-weight: bolder;
+          font-size: 20px;
+
+          &--sub{
+          padding: 20px;
+          text-align: center;
+          font-size: 16px;
+          font-weight: bold;
+          border-top: 2px solid $bdr-blue;
+          }
+        }
+
+        &__products{
+          &--list{
+          
+          border-bottom: 1px solid $bdr-gray;
+          
+
+          a{
+            display: block;
+            width: 100%;
+            padding: 20px;
+            position: relative;
+          @include arrow-right($top:50%,$right:20px);
+          }
+          }
+
+          &--list:hover{
+          background-color: $bg-gray;
+          }
+
+          &--link-btn{
+            padding: 20px 20px;
+            a{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              padding: 20px;
+              background-color: $bg-gray2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
