@@ -100,7 +100,7 @@
 
       &--btn {
         @include productbtn-default();
-        background-color: red;
+        background-color: $bg-blue;
         color: white;
         margin-bottom: 24px;
       }

@@ -41,7 +41,7 @@
   font-size: 16px;
 }
 
-@mixin formbtn-default($bkcolor:red,$color: white) {
+@mixin formbtn-default($bkcolor:$bg-blue,$color: white) {
   display: block;
   width: 100%;
   color: $color;
@@ -49,6 +49,7 @@
   font-size: 14px;
   text-align: center;
   background-color: $bkcolor;
+  border: none;
 }
 
 @mixin required() {
