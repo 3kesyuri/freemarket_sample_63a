@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :purchases
 
   devise :validatable, password_length: 7..128
-  devise :validatable, email_regexp: /\A\S[a-z\d]+@\S[a-z\d]+\.\S+\z/
+  devise :validatable, email_regexp: /\A[a-z\d]+@[a-z\d]+\.\S+\z/
   validates :nickname, presence: true, length: { in: 1..20}
   validates :family_name, presence: true, format: { with: /\A[ぁ-んァ-ヶー一-龠Ａ-Ｚ]+\z/i}
   validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ヶー一-龠Ａ-Ｚ]+\z/i}
