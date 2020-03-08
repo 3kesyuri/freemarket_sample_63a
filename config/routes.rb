@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "products#index"
+  root "categories#index"
   resources :tests, only: [:index, :create]
   resources :destinations, only: [:create, :update]
+  resources :categories, only: [:index]
   resources :products, only: [:index, :new, :create]
   resources :users, only: [:show, :edit, :update] do
     resources :destinations, only: [:index]
