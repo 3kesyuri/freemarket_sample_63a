@@ -9,6 +9,13 @@ class CreditsController < ApplicationController
 
   def show
     set_credit_id
+    if @credit.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@credit.name)
+      @default_card_information = customer.cards.retrieve(@credit.card_id)
+    end
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -22,19 +29,25 @@ class CreditsController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = CreditCard.new(user_id: current_user.id, name: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        set_credit_id
+        redirect_credit_show
       else
         redirect_to action: "pay"
       end
     end
   end
 
-
-
-
-
-
-
+  def delete #PayjpとCardデータベースを削除します
+    set_credit_id
+    if @credit.blank?
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@credit.name)
+      customer.delete
+      @credit.delete
+    end
+    redirect_credit_new
+  end
 
   private
   def set_credit_id
@@ -43,6 +56,10 @@ class CreditsController < ApplicationController
 
   def redirect_credit_show
     redirect_to credit_path(@credit.id)
+  end
+
+  def redirect_credit_new
+    redirect_to  new_user_credit_path(current_user.id)
   end
 
 end
