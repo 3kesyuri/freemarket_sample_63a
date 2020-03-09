@@ -1,0 +1,55 @@
+.purchase_index
+  = render "shared/logo"
+
+  .content__wrapper
+    .content__title
+      %h2 購入内容の確認
+
+    
+    .content__img--wrap
+      .content__img--img
+        = image_tag "icon-02.png", alt: "商品写真"
+      %dl.content__img--info
+        %dt.content__img--name
+          商品名
+        %dd.content__img--price
+          ￥300,000
+        %dd.content__img--delivariy
+          送料こみ
+    .content__main--wrap
+      .content__main--info
+        .content__main--title01
+          %h3 お支払い金額
+          %p ￥300,000
+      .content__main--info
+        .content__main--title02
+          %h3 支払い方法
+          .content__main--link
+            = link_to "#" do
+              変更する
+        .content__main--detail
+          %p.content__main--card-number カード番号
+          %p 4444
+          %p.content__main--card-limit 有効期限
+          .content__main--card-limit-wrap
+            %p 12
+            %p 月
+            %p 20
+            %p 年
+
+      .content__main--info
+        .content__main--title02
+          %h3 配送先
+          .content__main--link
+            = link_to "#" do
+              変更する
+        .content__main--detail
+          %p.content__main--dl-zip 〒1234567
+          %p.content__main--dl-adress 福岡県福岡市中央区天神の真ん中
+          %p.content__main--dl-name 山田　太郎
+      
+      = form_tag(pay_product_purchases_path(1), method: :post) do
+        = text_field_tag "amount","",type: "hidden",value: "300000"
+        = submit_tag "購入する", class: "content__form--btn"
+          
+        
