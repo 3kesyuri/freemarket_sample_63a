@@ -17,10 +17,10 @@ class PurchasesController < ApplicationController
     set_purchase_amaout
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-    :amount => @amount, 
-    :customer => @credit.name, 
-    :currency => 'jpy', 
-  )
+      :amount => @amount, 
+      :customer => @credit.name, 
+      :currency => 'jpy', 
+    )
 
     set_product_id
     product = Product.find_by(@product_id)
