@@ -18,7 +18,7 @@ class CreditsController < ApplicationController
     end
   end
 
-  def pay #payjpとCardのデータベース作成を実施します。
+  def pay #payjpとCardのデータベース作成
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -26,7 +26,7 @@ class CreditsController < ApplicationController
       customer = Payjp::Customer.create(
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
-      ) #念の為metadataにuser_idを入れましたがなくてもOK
+      ) 
       @card = CreditCard.new(user_id: current_user.id, name: customer.id, card_id: customer.default_card)
       if @card.save
         set_credit_id
@@ -37,10 +37,9 @@ class CreditsController < ApplicationController
     end
   end
 
-  def delete #PayjpとCardデータベースを削除します
+  def delete #PayjpとCardデータベースを削除
     set_credit_id
-    if @credit.blank?
-    else
+    if !@credit.blank?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@credit.name)
       customer.delete

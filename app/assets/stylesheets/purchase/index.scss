@@ -52,6 +52,12 @@
         border-bottom: 1px solid $bdr-gray;
       }
 
+      &--link{
+        a{
+          color: $font-blue2;
+        }
+      }
+
       &--title01,
       &--title02{
         display: flex;
@@ -59,9 +65,7 @@
         h3{
           font-weight: bold;
         }
-        a{
-          color: $font-blue2;
-        }
+
       }
       
       &--title01{
