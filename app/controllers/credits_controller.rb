@@ -18,7 +18,7 @@ class CreditsController < ApplicationController
     end
   end
 
-  def pay #payjpとCardのデータベース作成
+  def pay 
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -37,7 +37,7 @@ class CreditsController < ApplicationController
     end
   end
 
-  def delete #PayjpとCardデータベースを削除
+  def delete 
     set_credit_id
     if !@credit.blank?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]

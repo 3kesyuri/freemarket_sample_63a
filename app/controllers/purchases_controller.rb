@@ -7,9 +7,7 @@ class PurchasesController < ApplicationController
   
     if !@credit.blank?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(@credit.name)
-      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
       @default_card_information = customer.cards.retrieve(@credit.card_id)
     end
   end
@@ -24,7 +22,6 @@ class PurchasesController < ApplicationController
     :currency => 'jpy', 
   )
 
-  #商品の出品状態を切替（0は売れたので表示しない）
   set_product_id
   product = Product.find_by(@product_id)
   product.condition = 0
