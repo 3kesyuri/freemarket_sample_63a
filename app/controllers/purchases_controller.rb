@@ -22,11 +22,16 @@ class PurchasesController < ApplicationController
     :currency => 'jpy', 
   )
 
-  set_product_id
-  product = Product.find_by(@product_id)
-  product.condition = 0
-  product.save
-  redirect_to root_path
+    set_product_id
+    product = Product.find_by(@product_id)
+    product.condition = 0
+    
+    if product.save
+    redirect_to root_path
+    else
+    redirect_to product_purchases(@porduct_id)
+    end
+
   end
 
   private
