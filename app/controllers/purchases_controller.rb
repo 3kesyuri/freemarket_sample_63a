@@ -27,9 +27,9 @@ class PurchasesController < ApplicationController
     product.condition = 0
     
     if product.save
-    redirect_to root_path
+      redirect_to root_path
     else
-    redirect_to product_purchases(@porduct_id)
+      redirect_to product_purchases(@porduct_id)
     end
 
   end
