@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200302111439) do
+ActiveRecord::Schema.define(version: 20200302103300) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -59,14 +59,6 @@ ActiveRecord::Schema.define(version: 20200302111439) do
     t.index ["user_id"], name: "index_destinations_on_user_id", using: :btree
   end
 
-  create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "product_id", null: false
-    t.string   "image",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_product_images_on_product_id", using: :btree
-  end
-
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                          null: false
     t.text     "description",     limit: 65535, null: false
@@ -77,7 +69,7 @@ ActiveRecord::Schema.define(version: 20200302111439) do
     t.integer  "price",                         null: false
     t.integer  "user_id",                       null: false
     t.integer  "category_id",                   null: false
-    t.integer  "brand_id",                      null: false
+    t.integer  "brand_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
@@ -115,7 +107,6 @@ ActiveRecord::Schema.define(version: 20200302111439) do
 
   add_foreign_key "credit_cards", "users"
   add_foreign_key "destinations", "users"
-  add_foreign_key "product_images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"

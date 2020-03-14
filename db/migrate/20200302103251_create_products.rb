@@ -12,7 +12,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
 
       t.references :user, null: false, foreign_key: true
       t.references :category, null: false, foreign_key: true
-      t.references :brand, null: false, foreign_key: true
+      t.references :brand, foreign_key: true
 
       t.timestamps
     end
