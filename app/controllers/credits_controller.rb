@@ -50,7 +50,7 @@ class CreditsController < ApplicationController
 
   private
   def set_credit_id
-    @credit = CreditCard.where(user_id: current_user.id).first
+    @credit = CreditCard.find_by(user_id: current_user.id)
   end
 
   def redirect_credit_show

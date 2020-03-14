@@ -36,7 +36,7 @@ class PurchasesController < ApplicationController
 
   private
   def set_credit_id
-    @credit = CreditCard.where(user_id: current_user.id).first
+    @credit = CreditCard.find_by(user_id: current_user.id)
   end
 
   def set_destination
