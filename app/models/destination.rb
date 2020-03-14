@@ -29,5 +29,8 @@ class Destination < ApplicationRecord
   validates :municipality,
   presence: true
 
+  validates :address,
+  presence: true
+
  
 end
