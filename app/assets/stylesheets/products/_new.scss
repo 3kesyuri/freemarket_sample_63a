@@ -137,12 +137,16 @@
     padding: 13px 16px;
   }
 
-  #product_category_id,
   #product_delivery_charge,
   #product_delivery_origin,
   #product_shipping_date  {
     @include form-selectbox();
     margin-bottom: 30px;
+  }
+
+  #product_category_id {
+    @include form-selectbox();
+    margin: 20px 0px;
   }
 
   #product_brand_id {

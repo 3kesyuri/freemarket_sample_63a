@@ -12,9 +12,10 @@
             %span.content__product--image-attention
               最大10枚までアップロードできます
         .content__product--image
-          =f.label :image, class: 'content__product--image-file' do
-            =icon('fas', 'camera', class: 'content__product--image-icon')
-          =f.file_field :image, class: 'content__product--hidden'
+          = f.fields_for :product_images do |i| 
+            =i.label :image, class: 'content__product--image-file' do
+              =icon('fas', 'camera', class: 'content__product--image-icon')
+              = i.file_field :image, class: 'content__product--hidden'
         .content__product--section
           %label
             %p.content__form--required 商品名
@@ -24,15 +25,14 @@
           %label
             %p.content__form--required 商品の説明
             %br/
-            %span.content__product--description-attention 色、素材、重さ、定価、注意点など、1,000文字以内でご入力下さい
+            %span.content__product--description-attention サイズ、色、素材、重さ、定価、注意点など、1,000文字以内でご入力下さい
             %br/
             = f.text_area :description, autofocus: true, rows: 7, placeholder: "例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
         .content__product--section
           %p.content__product--section-title 商品の詳細
-          %label
-            %p.content__form--required カテゴリー
-            %br/
-            = f.select :category_id, ["選択してください","レディース","メンズetc","アンセストリー"]
+          %p.content__form--required カテゴリー
+          .content__product--category.parent
+            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, { prompt: "選択してください" }
           %label
             %p.content__form--optional ブランド
             %br/
@@ -50,7 +50,7 @@
           %label
             %p.content__form--required 配送元の地域
             %br/
-            = f.select :delivery_origin, ["選択してください","北海道","青森","アクティブハッシュ"]
+            = f.collection_select :delivery_origin, Prefecture.all, :id, :name, { prompt: "選択してください" }
           %label
             %p.content__form--required 発送までの日数
             %br/
@@ -66,13 +66,13 @@
           %label.content__product--fee
             %span 販売手数料（10％）
             %br/
-            %span ¥ 300
+            %span ¥ --
         .content__product--section
           %label.content__product--profit
             %span 販売利益
             %br/
-            %span ¥ 300
-        = f.submit class: "content__product--btn", value: "出品する"
+            %span ¥ --
+        = f.submit class: "content__product--btn", value: "出品する", data: { disable_with: false }
         = link_to "トップページにもどる", root_path, class: "content__product--btn-return"
         .content__product--section-prohibited
           %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
