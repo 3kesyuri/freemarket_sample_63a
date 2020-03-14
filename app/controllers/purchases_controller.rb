@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   def index
     set_destination
+    set_product_info
     set_product_amount
     set_credit_id
     set_product_id
@@ -41,6 +42,10 @@ class PurchasesController < ApplicationController
 
   def set_destination
     @destination = Destination.find_by(user_id: current_user.id)
+  end
+
+  def set_product_info
+    @product_info = Product.find_by(id: params[:product_id])
   end
 
   def set_product_amount

@@ -11,16 +11,17 @@
         = image_tag "icon-02.png", alt: "商品写真"
       %dl.content__img--info
         %dt.content__img--name
-          商品名
+          = @product_info.name
         %dd.content__img--price
-          ￥300,000
+          = "￥" + @product_amount.to_s
         %dd.content__img--delivariy
-          送料こみ
+          = @product_info.delivery_charge
     .content__main--wrap
       .content__main--info
         .content__main--title01
           %h3 お支払い金額
-          %p ￥300,000
+          %p
+            = "￥" + @product_amount.to_s
       .content__main--info
         .content__main--title02
           %h3 支払い方法

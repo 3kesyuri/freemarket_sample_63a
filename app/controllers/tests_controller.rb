@@ -1,21 +1,22 @@
 class TestsController < ApplicationController
 
   def index
-    @test = Test.new
-    @test_obj = Test.all
+    @test = Product.new
   end
 
   def create
-    @test = Test.new(test_params)
-    if @test.save!
+    @brand = Brand.new(name: "fake")
+    @brand.save!
+
+    test_pro = Product.new(product_params)
+    if test_pro.save!
       redirect_to root_path
+    else
+      redirect_to tests_path
     end
   end
 
-  def show
-  end
-
-  def test_params
-    params.require(:test).permit(:text, :image)
+  def product_params
+    params.require(:product).permit(:name,:description,:condition,:delivery_charge,:delivery_origin,:shipping_date,:price,:category_id,:brand_id).merge(user_id: current_user.id)
   end
 end
