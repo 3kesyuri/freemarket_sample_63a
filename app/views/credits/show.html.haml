@@ -11,18 +11,21 @@
       .content__show--wrapper
         .content__show--box.first
           %p.content__show--title カード番号
-          %p "**** **** **** " 0000
+          %p
+            = "**** **** **** " + @default_card_information.last4
         
         .content__show--box
           %p.content__show--title 有効期限
           .content__show--term
-            %p 8
+            %p
+              = @default_card_information.exp_month.to_s
             %p 月
-            %p 20
+            %p
+              = @default_card_information.exp_year.to_s.slice(2,3)
             %p 年
 
-        = form_tag("#", method: :post) do
-          = text_field_tag "card_id", "", type: "hidden"
+        = form_tag(delete_user_credits_path(current_user.id), method: :post, id: 'charge-form',  name: "inputForm") do
+          = text_field_tag "card_id", "", type: "hidden", value: ""
           = submit_tag "削除する", class: "content__show--btn"
 
 = render "shared/footer"

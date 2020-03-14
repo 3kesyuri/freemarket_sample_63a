@@ -1,19 +1,24 @@
-%h1.test_h1 Test page to deploy
-%p this page is used to test operation
+%h1.test_h1 テスト用商品データ投稿フォーム
 
-%p
-    =link_to user_path(1) do
-        show
+= form_for [@test],url: tests_path,method: "POST"  do |f|
+    %p
+        = f.text_field :name, value: "商品名テスト"
+    %p
+        = f.text_field :description, value: "説明テスト"
+    %p
+        = f.text_field :condition, value: "1"
+    %p
+        = f.text_field :delivery_charge, value: "配送料テスト"
+    %p
+        = f.text_field :delivery_origin, value: "配送元テスト"
+    %p
+        = f.text_field :shipping_date, value: "配送日数テスト"
+    %p
+        = f.number_field :price, value: 20000
+    %p
+        = f.number_field  :category_id, value: 1
+    %p
+        = f.number_field  :brand_id, value: 1
+        = f.submit value: "登録する"
 
-=form_for @test do |f|
-    = f.text_field :text
-    = f.file_field :image
-    = f.submit value: "確定"
 
-- if @test_obj.nil? || @test_obj.empty?
-    %p データが存在しません
-- else
-    %ul
-        - @test_obj.each do |obj|
-            %li
-                = image_tag obj.image ,size: "200x200", alt: "出品画像"
