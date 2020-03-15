@@ -36,7 +36,7 @@
           %label
             %p.content__form--optional ブランド
             %br/
-            = f.text_field :brand_id, autofocus: true, placeholder: "例）シャネル"
+            = f.collection_select :brand_id, Brand.all, :id, :name, { prompt: "--" }
           %label
             %p.content__form--required 商品の状態
             %br/
@@ -50,7 +50,7 @@
           %label
             %p.content__form--required 配送元の地域
             %br/
-            = f.collection_select :delivery_origin, Prefecture.all, :id, :name, { prompt: "選択してください" }
+            = f.collection_select :delivery_origin, Prefecture.all, :name, :name, { prompt: "選択してください" }
           %label
             %p.content__form--required 発送までの日数
             %br/
@@ -72,6 +72,7 @@
             %span 販売利益
             %br/
             %span ¥ --
+        = f.hidden_field :status, {value: 'sale'}
         = f.submit class: "content__product--btn", value: "出品する", data: { disable_with: false }
         = link_to "トップページにもどる", root_path, class: "content__product--btn-return"
         .content__product--section-prohibited
