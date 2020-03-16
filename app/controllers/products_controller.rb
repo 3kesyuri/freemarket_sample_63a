@@ -15,7 +15,12 @@ class ProductsController < ApplicationController
   end
 
   def show
+    set_product_images
   end
 
 
+  private
+  def set_product_images
+    @product_images = ProductImage.where(product_id: params[:id])
+  end
 end
