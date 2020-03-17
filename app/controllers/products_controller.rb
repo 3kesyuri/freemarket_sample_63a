@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
   def show
     set_product_images
     set_product_info
+    @brand = Brand.find(@product_info.brand_id)
+    @category = Category.find(@product_info.category_id)
   end
 
 

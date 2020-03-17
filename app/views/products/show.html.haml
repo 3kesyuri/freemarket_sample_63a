@@ -7,24 +7,24 @@
       %li
         <i class="fas fa-angle-right"></i>
       %li
-        レディース
+        = @category.root.name
       %li
         <i class="fas fa-angle-right"></i>
       %li
-        トップス
+        = @category.parent.name
       %li
         <i class="fas fa-angle-right"></i>
       %li
-        Tシャツ/カットソー(半袖/袖なし)
+        = @category.name
       %li
         <i class="fas fa-angle-right"></i>
       %li
-        product1
+        = @product_info.name
   .products-detail-page__main
     .products-detail-page__main__head__contents
       .products-detail-page__main__head__contents__top__item-box
         .products-detail-page__main__head__contents__top__item-box__name
-          product1
+          = @product_info.name
         .products-detail-page__main__head__contents__top__item-box__body
           %ul#slider.products-detail-page__main__head__contents__top__item-box__body__ul
             - @product_images.each do |pic|
@@ -37,9 +37,9 @@
                 = image_tag pic.image, width: "75px",height: "87px"
         .products-detail-page__main__head__contents__top__item-box__price
           %span
-            ¥10000
+            = "¥" + @product_info.price.to_s
           .products-detail-page__main__head__contents__top__item-box__price__detail
-            (税込)送料込み
+            = "(税込)" + @product_info.delivery_charge
         .products-detail-page__purchase-btn
           - if@product_info.user_id == current_user.id
             =link_to user_path(current_user.id) do
@@ -48,7 +48,8 @@
             =link_to product_purchases_path(params[:id]) do
               購入画面に進む
         .products-detail-page__main__head__contents__top__item-box__comments
-          親譲りの無鉄砲で小供の時から損ばかりしている。 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。 なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。 弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+          = @product_info.description
+
         .products-detail-page__main__head__contents__top__item-box__table
           %table
             %tbody
@@ -56,44 +57,41 @@
                 %th
                   出品者
                   %td
-                    hoge
+                    = @product_info.user.nickname
               %tr
                 %th
                   カテゴリー
                   %td
-                    レディース
+                    = @category.root.name
                     %br
-                    トップス
+                    = @category.parent.name
                     %br
-                    Tシャツ/カットソー(半袖/袖なし)
+                    = @category.name
               %tr
                 %th
                   ブランド
                   %td
-              %tr
-                %th
-                  商品のサイズ
-                  %td
+                    = @brand.name
               %tr
                 %th
                   商品の状態
                   %td
-                    新品/未使用
+                    = @product_info.condition
               %tr
                 %th
                   配送料の負担
                   %td
-                    送料込み（出品者負担）
+                    = @product_info.delivery_charge
               %tr
                 %th
                   発送元の地域
                   %td
-                    青森県
+                    = @product_info.delivery_origin
               %tr
                 %th
                   発送日の目安
                   %td
-                    1-2日で発送
+                    = @product_info.shipping_date
         .products-detail-page__main__head__contents__top__item-box__option-area
           %ul.like
             %li.like-btn
