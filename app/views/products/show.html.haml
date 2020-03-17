@@ -40,6 +40,13 @@
             ¥10000
           .products-detail-page__main__head__contents__top__item-box__price__detail
             (税込)送料込み
+        .products-detail-page__purchase-btn
+          - if@product_info.user_id == current_user.id
+            =link_to user_path(current_user.id) do
+              商品を編集・削除する
+          - else
+            =link_to product_purchases_path(params[:id]) do
+              購入画面に進む
         .products-detail-page__main__head__contents__top__item-box__comments
           親譲りの無鉄砲で小供の時から損ばかりしている。 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。 なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。 弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
         .products-detail-page__main__head__contents__top__item-box__table

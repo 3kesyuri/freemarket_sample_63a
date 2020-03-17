@@ -16,11 +16,16 @@ class ProductsController < ApplicationController
 
   def show
     set_product_images
+    set_product_info
   end
 
 
   private
-  def set_product_images
-    @product_images = ProductImage.where(product_id: params[:id])
-  end
+    def set_product_images
+      @product_images = ProductImage.where(product_id: params[:id])
+    end
+    
+    def set_product_info
+      @product_info = Product.find_by(id: params[:id])
+    end
 end
