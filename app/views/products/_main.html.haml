@@ -85,11 +85,14 @@
         新規投稿商品
       .top-page-main__pickup-catgory__box__lists
         .top-page-main__pickup-catgory__box__lists__img
-          = image_tag "icon-02.png", width: "220px"
+          =link_to product_path(1) do
+            = image_tag "icon-02.png", width: "220px"
         .top-page-main__pickup-catgory__box__lists__img
-          = image_tag "icon-02.png", width: "220px"
+          =link_to product_path(2) do
+            = image_tag "icon-02.png", width: "220px"
         .top-page-main__pickup-catgory__box__lists__img
-          = image_tag "icon-02.png", width: "220px"
+          =link_to product_path(3) do
+            = image_tag "icon-02.png", width: "220px"
   .top-page-main__pickup-brand
     .top-page-main__pickup-brand__head
       ピックアップブランド

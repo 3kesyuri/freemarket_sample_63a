@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-before_action :set_product_images, :set_product_info
+before_action :set_product_images, :set_product_info,only: :show
 
 
   def index
