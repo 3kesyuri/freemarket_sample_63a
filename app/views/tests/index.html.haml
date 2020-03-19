@@ -2,7 +2,7 @@
 
 = form_for [@test],url: tests_path,method: "POST"  do |f|
     %p
-        = f.text_field :name, value: "商品名テスト"
+        = f.text_field :name ,value: "商品名テスト",data: {index: 'index-number'}
     %p
         = f.text_field :description, value: "説明テスト"
     %p
@@ -20,5 +20,6 @@
     %p
         = f.number_field  :brand_id, value: 1
         = f.submit value: "登録する"
+
 
 
