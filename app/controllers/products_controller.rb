@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+before_action :set_product_images, :set_product_info
 
 
   def index
@@ -15,8 +15,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    set_product_images
-    set_product_info
     @brand = Brand.find(@product_info.brand_id)
     @category = Category.find(@product_info.category_id)
   end
