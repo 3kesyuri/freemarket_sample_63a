@@ -41,12 +41,15 @@
           .products-detail-page__main__head__contents__top__item-box__price__detail
             = "(税込)" + @product_info.delivery_charge
         .products-detail-page__purchase-btn
-          - if@product_info.user_id == current_user.id
-            =link_to user_path(current_user.id) do
-              商品を編集・削除する
-          - else
-            =link_to product_purchases_path(params[:id]) do
-              購入画面に進む
+          =link_to new_user_session_path do
+            購入にはログインが必要です
+          - if user_signed_in?
+            - if@product_info.user_id == current_user.id
+              =link_to user_path(current_user.id) do
+                商品を編集・削除する
+            - else
+              =link_to product_purchases_path(params[:id]) do
+                購入画面に進む
         .products-detail-page__main__head__contents__top__item-box__comments
           = @product_info.description
 
