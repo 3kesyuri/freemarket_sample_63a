@@ -16,5 +16,5 @@
           =link_to new_user_credit_path(current_user.id) do
             クレジットカード 登録
         %li.side__list--link
-          = link_to destroy_user_session_path,method: :delete, class: 'btn' do
+          = link_to logout_users_path, class: 'btn' do
             ログアウト
