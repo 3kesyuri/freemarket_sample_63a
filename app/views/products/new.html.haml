@@ -10,12 +10,18 @@
             %p.content__form--required 出品画像
             %br/
             %span.content__product--image-attention
-              最大10枚までアップロードできます
-        .content__product--image
-          = f.fields_for :product_images do |i| 
-            =i.label :image, class: 'content__product--image-file' do
-              =icon('fas', 'camera', class: 'content__product--image-icon')
-              = i.file_field :image, class: 'content__product--hidden'
+              最大5枚までアップロードできます
+            .content__product--image-box
+              .content__product--image-content
+              .content__product--image-label
+                = f.label :"product_images_attributes_#{@product.product_images.length - 1}_image", class: "label-box", id: "label-box--#{@product.product_images.length - 1} " do
+                  =icon('fas', 'camera', class: 'content__product--image-icon')
+              .hidden-content
+                = f.fields_for :product_images do |i|
+                  = i.file_field :image, class: "hidden-field"
+                -# 5つのfile_fieldを準備するに当たって、足りない分を表示
+                - @product.product_images.length.upto(4) do |i|
+                  %input{name: "product[product_images_attributes][#{i}][image]", id: "product_product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}           
         .content__product--section
           %label
             %p.content__form--required 商品名
