@@ -3,6 +3,7 @@ before_action :set_product_images, :set_product_info,only: :show
 
 
   def index
+    @products = Product.where(category_id: "1")
   end
   
   def new

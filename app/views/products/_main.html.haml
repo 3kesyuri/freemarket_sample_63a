@@ -84,15 +84,18 @@
       .top-page-main__pickup-catgory__box__title
         新規投稿商品
       .top-page-main__pickup-catgory__box__lists
-        .top-page-main__pickup-catgory__box__lists__img
-          =link_to product_path(1) do
-            = image_tag "icon-02.png", width: "220px"
-        .top-page-main__pickup-catgory__box__lists__img
-          =link_to product_path(2) do
-            = image_tag "icon-02.png", width: "220px"
-        .top-page-main__pickup-catgory__box__lists__img
-          =link_to product_path(3) do
-            = image_tag "icon-02.png", width: "220px"
+        -@products.each do |product|
+          .top-page-main__pickup-catgory__box__lists__img
+            =link_to product_path(product), class: "top-page-main__pickup-catgory__box__lists__img" do
+              = image_tag product.product_images[0].image.url
+              %br
+              .top-page-main__pickup-catgory__box__lists__img__body
+                = product.name
+                %br
+                = "#{product.price}円"
+                %br
+                (税込)
+
   .top-page-main__pickup-brand
     .top-page-main__pickup-brand__head
       ピックアップブランド
