@@ -1,0 +1,14 @@
+= render "shared/header"
+
+.mypage__logout
+  .mypage__logout--inner
+    = render partial: 'side'
+    
+    .content__wrapper
+      %p
+        = link_to destroy_user_session_path,method: :delete, class: 'mypage__logout--btn' do
+          ログアウト
+
+
+= render "shared/footer"
+= render "shared/purchase-btn"

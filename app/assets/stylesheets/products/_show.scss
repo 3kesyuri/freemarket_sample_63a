@@ -1,4 +1,18 @@
 .products-detail-page {
+  #slider__thumbnail{
+    width: 255px;
+    margin: 20px auto 0;
+  }
+
+  .slick-slide:focus {
+    outline: none;
+  }
+  .slick-initialized .slick-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__bread-crumbs {
     width: 100%;
     border-top: 1px solid #eee;
@@ -18,6 +32,7 @@
     }
   }
   &__main {
+    padding: 40px 0;
     background-color: #F8F8F8;
     &__head {
       padding: 40px;
@@ -42,37 +57,7 @@
               margin: 16px 0 0;
               padding: 0;
               &__ul {
-                display: flex;
-                position: relative;
-                text-align: center;
-                &__li {
-                  display: flex;
-                  flex-direction: column;
-                  width: 560px;
-                  align-items: center;
-                  margin: 0 auto;
-                  padding: 0;
-                  &__img {
-                    object-fit: cover;
-                    width: 100%;
-                    vertical-align: bottom;
-                  }
-                  &__ul {
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 10px;
-                    &__li {
-                      width: 25%;
-                      margin: 0 10px 0 0;
-                      &__img {
-                        object-fit: cover;
-                        height: 87px;
-                        width: 100%;
-                        vertical-align: bottom;
-                      }
-                    }
-                  }
-                }
+
               }
             }
             &__price {
@@ -94,11 +79,12 @@
             &__comments {
               line-height: 1.5;
               font-size: 18px;
-              margin-bottom: 30px;
+              margin:30px 0 0;
             }
             &__table {
               margin-bottom: 20px;
               table {
+                margin: 30px 0;
                 width: 100%;
                 height: 375px;
                 border-collapse: collapse;
@@ -201,7 +187,7 @@
           padding: 0;
           a {
             display: block;
-            margin: 50px 0 8px;
+            margin: 50px 0 0;
             color: #3CCACE;
             text-decoration: none;
             font-weight: bold;
@@ -210,6 +196,11 @@
           }
         }
       }
+    }
+  }
+  &__purchase-btn{
+    a{
+      @include formbtn-default($bkcolor:$bg-blue,$color: white,$f-size: 24px ,$f-weight:bold);
     }
   }
 }

@@ -1,137 +1,137 @@
-.wrapper
-  = render "shared/header"
+= render "shared/header"
 .products-detail-page
   .products-detail-page__bread-crumbs
     %ul
       %li
         FURIMA
       %li
-        <i class="fas fa-angle-right"></i>
+        = icon('fas','angle-right')
       %li
-        レディース
+        = @category.root.name
       %li
-        <i class="fas fa-angle-right"></i>
+        = icon('fas','angle-right')
       %li
-        トップス
+        = @category.parent.name
       %li
-        <i class="fas fa-angle-right"></i>
+        = icon('fas','angle-right')
       %li
-        Tシャツ/カットソー(半袖/袖なし)
+        = @category.name
       %li
-        <i class="fas fa-angle-right"></i>
+        = icon('fas','angle-right')
       %li
-        product1
+        = @product_info.name
   .products-detail-page__main
-    .products-detail-page__main__head
-      .products-detail-page__main__head__contents
-        .products-detail-page__main__head__contents__top
-          .products-detail-page__main__head__contents__top__item-box
-            .products-detail-page__main__head__contents__top__item-box__name
-              product1
-            .products-detail-page__main__head__contents__top__item-box__body
-              .products-detail-page__main__head__contents__top__item-box__body__ul
-                .products-detail-page__main__head__contents__top__item-box__body__ul__li
-                  .products-detail-page__main__head__contents__top__item-box__body__ul__li__img
-                    = image_tag "icon-02.png", height:"346px"
-                  .products-detail-page__main__head__contents__top__item-box__body__ul__li__ul
-                    .products-detail-page__main__head__contents__top__item-box__body__ul__li__ul__li
-                      .products-detail-page__main__head__contents__top__item-box__body__ul__li__ul__li__img
-                        = image_tag "icon-02.png", width: "75px",height: "87px"
-                    .products-detail-page__main__head__contents__top__item-box__body__ul__li__ul__li
-                      .products-detail-page__main__head__contents__top__item-box__body__ul__li__ul__li__img
-                        = image_tag "icon-02.png", width: "75px",height: "87px"
-                    .products-detail-page__main__head__contents__top__item-box__body__ul__li__ul__li
-                      .products-detail-page__main__head__contents__top__item-box__body__ul__li__ul__li__img
-                        = image_tag "icon-02.png", width: "75px",height: "87px"
-            .products-detail-page__main__head__contents__top__item-box__price
-              %span
-                ¥10000
-              .products-detail-page__main__head__contents__top__item-box__price__detail
-                (税込)送料込み
-            .products-detail-page__main__head__contents__top__item-box__comments
-              親譲りの無鉄砲で小供の時から損ばかりしている。 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。 なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。 弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
-            .products-detail-page__main__head__contents__top__item-box__table
-              %table
-                %tbody
-                  %tr
-                    %th
-                      出品者
-                      %td
-                        hoge
-                  %tr
-                    %th
-                      カテゴリー
-                      %td
-                        レディース
-                        %br
-                        トップス
-                        %br
-                        Tシャツ/カットソー(半袖/袖なし)
-                  %tr
-                    %th
-                      ブランド
-                      %td
-                  %tr
-                    %th
-                      商品のサイズ
-                      %td
-                  %tr
-                    %th
-                      商品の状態
-                      %td
-                        新品/未使用
-                  %tr
-                    %th
-                      配送料の負担
-                      %td
-                        送料込み（出品者負担）
-                  %tr
-                    %th
-                      発送元の地域
-                      %td
-                        青森県
-                  %tr
-                    %th
-                      発送日の目安
-                      %td
-                        1-2日で発送
-            .products-detail-page__main__head__contents__top__item-box__option-area
-              %ul.like
-                %li.like-btn
-                  <i class="fas fa-star"></i>
-                  お気に入り 0
-              %ul.tsuho
-                %li.tsuho-btn
-                  %a
-                  <i class="fas fa-flag"></i>
-                  不適切な商品の通報
-          .products-detail-page__main__head__contents__top__comment-box
-            .products-detail-page__main__head__contents__top__comment-box__contents
-            .form
-              %textarea
-                コメントコメントコメントコメント
-              .products-detail-page__main__head__contents__top__comment-box__notice-msg
-                相手のことを考え丁寧なコメントを心がけましょう。
-                %br
-                不快な言葉遣いなどは利用制限や退会処分となることがあります。
-              .products-detail-page__main__head__contents__top__comment-box__btn
-                <i class="fas fa-comment"></i>
-                コメントする
-        .products-detail-page__main__head__contents__links
-          .products-detail-page__main__head__contents__links__before
-            %li
-              <i class="fas fa-angle-left"></i>
-              %span
-                前の商品
-          .products-detail-page__main__head__contents__links__after
-            %li
-              後ろの商品
-              %span
-                <i class="fas fa-angle-right"></i>
-        .products-detail-page__main__head__contents__related-items
-          %a
-            レディースをもっと見る
-.wrapper
+    .products-detail-page__main__head__contents
+      .products-detail-page__main__head__contents__top__item-box
+        .products-detail-page__main__head__contents__top__item-box__name
+          = @product_info.name
+        .products-detail-page__main__head__contents__top__item-box__body
+          %ul#slider.products-detail-page__main__head__contents__top__item-box__body__ul
+            - @product_images.each do |pic|
+              %li.slider__item
+                = image_tag pic.image, width: "100%"
+
+          %ul#slider__thumbnail.products-detail-page__main__head__contents__top__item-box__body__ul
+            - @product_images.each do |pic|
+              %li.slider__thumbnail--item
+                = image_tag pic.image, width: "75px"
+        .products-detail-page__main__head__contents__top__item-box__price
+          %span
+            = "¥" + @product_info.price.to_s
+          .products-detail-page__main__head__contents__top__item-box__price__detail
+            = "(税込)" + @product_info.delivery_charge
+        .products-detail-page__purchase-btn
+          =link_to new_user_session_path do
+            購入にはログインが必要です
+          - if user_signed_in?
+            - if@product_info.user_id == current_user.id
+              =link_to user_path(current_user.id) do
+                商品を編集・削除する
+            - else
+              =link_to product_purchases_path(params[:id]) do
+                購入画面に進む
+        .products-detail-page__main__head__contents__top__item-box__comments
+          = @product_info.description
+
+        .products-detail-page__main__head__contents__top__item-box__table
+          %table
+            %tbody
+              %tr
+                %th
+                  出品者
+                  %td
+                    = @product_info.user.nickname
+              %tr
+                %th
+                  カテゴリー
+                  %td
+                    = @category.root.name
+                    %br
+                    = @category.parent.name
+                    %br
+                    = @category.name
+              %tr
+                %th
+                  ブランド
+                  %td
+                    = @brand.name
+              %tr
+                %th
+                  商品の状態
+                  %td
+                    = @product_info.condition
+              %tr
+                %th
+                  配送料の負担
+                  %td
+                    = @product_info.delivery_charge
+              %tr
+                %th
+                  発送元の地域
+                  %td
+                    = @product_info.delivery_origin
+              %tr
+                %th
+                  発送日の目安
+                  %td
+                    = @product_info.shipping_date
+        .products-detail-page__main__head__contents__top__item-box__option-area
+          %ul.like
+            %li.like-btn
+              = icon('fas','star')
+              お気に入り 0
+          %ul.tsuho
+            %li.tsuho-btn
+              %a
+              = icon('fas','flag')
+              不適切な商品の通報
+      .products-detail-page__main__head__contents__top__comment-box
+        .products-detail-page__main__head__contents__top__comment-box__contents
+        .form
+          %textarea
+            コメントコメントコメントコメント
+          .products-detail-page__main__head__contents__top__comment-box__notice-msg
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          .products-detail-page__main__head__contents__top__comment-box__btn
+            = icon('fas','comment')
+            コメントする
+      .products-detail-page__main__head__contents__links
+        .products-detail-page__main__head__contents__links__before
+          %li
+            = icon('fas','angle-left')
+            %span
+              前の商品
+        .products-detail-page__main__head__contents__links__after
+          %li
+            後ろの商品
+            %span
+              = icon('fas','angle-right')
+      .products-detail-page__main__head__contents__related-items
+        %a
+          レディースをもっと見る
+.products-detail-page__wrapper
   = render "shared/app-banner"
   = render "shared/footer"
   = render "shared/purchase-btn"

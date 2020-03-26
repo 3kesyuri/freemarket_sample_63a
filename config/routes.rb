@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show, :edit, :update] do
+    collection do
+      get 'logout', to: 'users#logout'
+    end
     resources :destinations, only: [:index]
     resources :credits, only: [:new, :show],shallow: true do
       collection do
