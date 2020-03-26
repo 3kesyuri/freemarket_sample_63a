@@ -104,12 +104,16 @@
   padding: 0;
 }
 @mixin pickup_box_list_img() {
-  width: 220px;
+  width: 30%;
   height: 150px;
   position: relative;
   overflow: hidden;
   margin: 0;
   z-index: auto;
+
+  img {
+    width: 100%;
+  }
 }
 @mixin footer_contents_content() {
   display: flex;
