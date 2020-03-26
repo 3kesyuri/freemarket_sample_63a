@@ -13,14 +13,44 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save!
-      @product.status == :sale
-      redirect_to root_path
+    image_presence
+    if @image.present?
+
+      @product = Product.new(product_params)
+      if @product.save!
+        @product.status == :sale
+        redirect_to root_path
+      else
+        redirect_to new_product_path
+      end
     else
-      redirect_to new_product_path
+      @product = Product.new
+      @product.product_images.new
+      render :new
     end
   end
+
+  def edit
+  end
+
+  def update
+    image_presence
+    if @image.present?
+
+      if @product.update(product_params)
+        redirect_to root_path
+      else
+        render :edit
+      end
+    
+    else
+      render :edit
+    end
+  end
+
+  def delete
+  end
+
   
   private
 
@@ -31,6 +61,11 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
+
+  def image_presence
+    @image = params.require(:product).permit(product_images_attributes: [:image, :_destroy, :id])
+  end
+
 end
 
 
