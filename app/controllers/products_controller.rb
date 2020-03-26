@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
 
   def index
+    @products = Product.where(category_id: "1")
   end
   
   def new
