@@ -34,18 +34,13 @@ class ProductsController < ApplicationController
   end
 
   def update
-    image_presence
-    if @image.present?
 
       if @product.update(product_params)
         redirect_to root_path
       else
         render :edit
       end
-    
-    else
-      render :edit
-    end
+
   end
 
   def delete

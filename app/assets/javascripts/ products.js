@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function(){
   $(function(){
 
-    //プレビューのhtmlを定義
     function buildHTML(count) {
       var html = `<div class="preview-box" id="preview-box__${count}">
                     <div class="upper-box">
@@ -15,29 +14,6 @@ $(document).on('turbolinks:load', function(){
                   </div>`
       return html;
     }
-
-    // 投稿編集時
-    //products/:i/editページへリンクした際のアクション=======================================
-    if (window.location.href.match(/\/products\/\d+\/edit/)){
-      //登録済み画像のプレビュー表示欄の要素を取得する
-      var prevContent = $('.content__product--image-label').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.content__product--image-label').css('width', labelWidth);
-      //プレビューにidを追加
-      $('.preview-box').each(function(index, box){
-        $(box).attr('id', `preview-box__${index}`);
-      })
-      //削除ボタンにidを追加
-      $('.delete-box').each(function(index, box){
-        $(box).attr('id', `delete_btn_${index}`);
-      })
-      var count = $('.preview-box').length;
-      //プレビューが5あるときは、投稿ボックスを消しておく
-      if (count == 5) {
-        $('.content__product--image-label').hide();
-      }
-    }
-    //=============================================================================
 
     // ラベルのwidth操作
     function setLabel() {
@@ -137,4 +113,52 @@ $(document).on('turbolinks:load', function(){
       //=============================================================================
     });
   });
+
+
+      // 投稿編集時
+    //products/:i/editページへリンクした際のアクション=======================================
+    if (window.location.href.match(/\/products\/\d+\/edit/)){
+      //登録済み画像のプレビュー表示欄の要素を取得する
+      var prevContent = $('.content__product--image-label').prev();
+      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      $('.content__product--image-label').css('width', labelWidth);
+      //プレビューにidを追加
+      $('.preview-box').each(function(index, box){
+        $(box).attr('id', `preview-box__${index}`);
+      })
+      //削除ボタンにidを追加
+      $('.delete-box').each(function(index, box){
+        $(box).attr('id', `delete_btn_${index}`);
+      })
+      var count = $('.preview-box').length;
+      //プレビューが5あるときは、投稿ボックスを消しておく
+      if (count == 5) {
+        $('.content__product--image-label').hide();
+      }
+
+      var btn = $(`.content__product--btn`);
+      $(document).on('click', '.delete-box', function() {
+        if ($(`.preview-box`).length == 0) {
+          btn.attr({
+            disabled: true,
+            value: '画像を一枚以上登録してください'
+          });
+          btn.css(
+            {'background-color':'red'
+          });
+        }
+      });
+
+      $(document).on('change', '.hidden-field', function() {
+        console.log("発火");
+        btn.attr({
+          disabled: false,
+          value: '編集する'
+        });
+        btn.css(
+          {'background-color':'#3CCACE'
+        });
+      });
+    }
+    //=============================================================================
 });
