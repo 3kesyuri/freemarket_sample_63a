@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :destinations, only: [:create, :update]
   resources :categories, only: [:index]
 
-  resources :products, only: [:index, :new, :create, :edit, :update, :delete] do
+  resources :products, only: [:index, :new, :create,:show ,:edit, :update, :delete] do
     resources :purchases, only: [:index],shallow: true do
       collection do
         get 'index', to: 'purchases#index'

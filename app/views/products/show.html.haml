@@ -2,24 +2,37 @@
 .products-detail-page
   .products-detail-page__bread-crumbs
     %ul
-      %li
-        FURIMA
-      %li
-        = icon('fas','angle-right')
-      %li
-        = @category.root.name
-      %li
-        = icon('fas','angle-right')
-      %li
-        = @category.parent.name
-      %li
-        = icon('fas','angle-right')
-      %li
-        = @category.name
-      %li
-        = icon('fas','angle-right')
-      %li
-        = @product_info.name
+      - if @category.parent.nil?
+        %li
+          FURIMA
+        %li
+          = icon('fas','angle-right')
+        %li
+          = @category.name
+        %li
+          = icon('fas','angle-right')
+        %li
+          = @product_info.name
+
+      - else
+        %li
+          FURIMA
+        %li
+          = icon('fas','angle-right')
+        %li
+          = @category.root.name
+        %li
+          = icon('fas','angle-right')
+        %li
+          = @category.parent.name
+        %li
+          = icon('fas','angle-right')
+        %li
+          = @category.name
+        %li
+          = icon('fas','angle-right')
+        %li
+          = @product_info.name
   .products-detail-page__main
     .products-detail-page__main__head__contents
       .products-detail-page__main__head__contents__top__item-box
@@ -41,15 +54,16 @@
           .products-detail-page__main__head__contents__top__item-box__price__detail
             = "(税込)" + @product_info.delivery_charge
         .products-detail-page__purchase-btn
-          =link_to new_user_session_path do
-            購入にはログインが必要です
           - if user_signed_in?
             - if@product_info.user_id == current_user.id
-              =link_to user_path(current_user.id) do
+              =link_to edit_product_path(@product_info.id) do
                 商品を編集・削除する
             - else
               =link_to product_purchases_path(params[:id]) do
                 購入画面に進む
+          - else
+            =link_to new_user_session_path do
+              購入にはログインが必要です
         .products-detail-page__main__head__contents__top__item-box__comments
           = @product_info.description
 
@@ -65,11 +79,14 @@
                 %th
                   カテゴリー
                   %td
-                    = @category.root.name
-                    %br
-                    = @category.parent.name
-                    %br
-                    = @category.name
+                    - if @category.parent.nil?
+                      = @category.name
+                    - else
+                      = @category.root.name
+                      %br
+                      = @category.parent.name
+                      %br
+                      = @category.name
               %tr
                 %th
                   ブランド
