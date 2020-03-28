@@ -1,3 +1,4 @@
+= @product_info.id
 .purchase_index
   = render "shared/logo"
 
@@ -66,6 +67,6 @@
                 配送先を登録してください
       
       - if !@credit.blank? & !@destination.blank?
-        = form_tag(pay_product_purchases_path(1), method: :post) do
+        = form_tag(pay_product_purchases_path(@product_info.id), method: :post) do
           = text_field_tag "amount","",type: "hidden",value: "#{@product_amount}"
           = submit_tag "購入する", class: "content__form--btn"

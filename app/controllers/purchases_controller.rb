@@ -22,10 +22,9 @@ class PurchasesController < ApplicationController
       customer: @credit.name, 
       currency: 'jpy', 
     )
-
     set_product_id
-    product = Product.find_by(@product_id)
-    product.condition = 0
+    product = Product.find(set_product_id)
+    product.status = :sold
     
     if product.save
       redirect_to root_path

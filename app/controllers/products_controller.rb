@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product_images, :set_product_info,only: :show
 
   def index
-    @products = Product.where(category_id: "1")
+    @products = Product.where(status: :sale).order("created_at DESC")
   end
   
   def new
@@ -34,13 +34,11 @@ class ProductsController < ApplicationController
   end
 
   def update
-
       if @product.update(product_params)
         redirect_to root_path
       else
         render :edit
       end
-
   end
 
   def delete
