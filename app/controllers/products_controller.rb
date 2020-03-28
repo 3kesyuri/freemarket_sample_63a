@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
     if @image.present?
 
       @product = Product.new(product_params)
-      if @product.save!
+      if @product.save
         @product.status == :sale
         redirect_to root_path
       else

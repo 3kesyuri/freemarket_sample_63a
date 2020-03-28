@@ -150,7 +150,6 @@ $(document).on('turbolinks:load', function(){
       });
 
       $(document).on('change', '.hidden-field', function() {
-        console.log("発火");
         btn.attr({
           disabled: false,
           value: '編集する'
