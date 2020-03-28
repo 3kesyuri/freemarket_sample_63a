@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :tests, only: [:index, :create]
   resources :destinations, only: [:create, :update]
   resources :categories, only: [:index]
-  
-  resources :products, only: [:index, :new, :create, :show] do
+
+  resources :products, only: [:index, :new, :create, :edit, :update, :delete] do
     resources :purchases, only: [:index],shallow: true do
       collection do
         get 'index', to: 'purchases#index'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+ 
   resources :users, only: [:show, :edit, :update] do
     collection do
       get 'logout', to: 'users#logout'
@@ -28,7 +28,5 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  
-
+ 
 end
