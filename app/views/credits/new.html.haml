@@ -9,17 +9,17 @@
         %h2 クレジットカード情報入力
 
       .content__form--wrapper
-        = form_tag("#", method: :post) do
+        = form_tag(pay_user_credits_path(current_user.id), method: :post,id: 'charge-form',  name: "inputForm") do
           .content__form--input.first
             %label
               %p.content__form--required カード番号
-              = text_field_tag "number", "", placeholder: "半角数字のみ" , type: "text"
+              = text_field_tag "number", "", placeholder: "半角数字のみ" , type: "text",id: "card_number"
           
           .content__form--input
             %label
               %p.content__form--required 有効期限
               .content__form--select
-                %select#exp_month{name: "exp_month", type: "text"}
+                %select{name: "exp_month", type: "text",id: "exp_month"}
                   %option{value: ""} --
                   %option{value: "1"}01
                   %option{value: "2"}02
@@ -34,7 +34,7 @@
                   %option{value: "11"}11
                   %option{value: "12"}12
                 %p.content__form--month 月
-                %select#exp_year{name: "exp_year", type: "text"}
+                %select{name: "exp_year", type: "text", id: "exp_year"}
                   %option{value: ""} --
                   %option{value: "2020"}20
                   %option{value: "2021"}21
@@ -52,8 +52,10 @@
           .content__form--input
             %label
               %p.content__form--required セキュリティコードコード
-              = text_field_tag "cvc", "", placeholder: "カード背面3~4桁の番号"
-          = submit_tag "登録する", class: "content__form--btn"
+              = text_field_tag "cvc", "", placeholder: "カード背面3~4桁の番号",id: "cvc"
+
+          #card_token
+          = submit_tag "登録する", class: "content__form--btn", id: "token_submit"
 
 = render "shared/footer"
 = render "shared/purchase-btn"

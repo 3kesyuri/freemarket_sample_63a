@@ -1,0 +1,22 @@
+.mypage__logout{
+  padding:40px 0 40px;
+  background-color: $bg-gray;
+
+  &--inner{
+    @include mainwidth();
+    @include clearfix();
+  }
+
+  &--btn{
+    @include formbtn-default(); 
+  }
+
+  .content{
+    &__wrapper{
+      float: right;
+      width: 700px;
+      padding: 50px 200px;
+      background-color: $bg-white;
+    }
+  }
+}

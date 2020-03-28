@@ -1,19 +1,41 @@
-%h1.test_h1 Test page to deploy
-%p this page is used to test operation
+%h1.test_h1 テスト用商品データ投稿フォーム
 
-%p
-    =link_to user_path(1) do
-        show
+= form_for [@product],url: tests_path,method: "POST"  do |f|
+    #image-box-test
+        %p 商品画像
+        %p
+            = f.fields_for :product_images do |i|
+                .js-file_group{data:{index:"#{i.index}" }}
+                    = i.file_field :image,class: "js-file"
+                    %span.js-remove
+    %p 商品名
+    %p
+        = f.text_field :name ,value: "商品名が入る",data: {index: 'index-number'}
+    %p 商品説明
+    %p
+        = f.text_field :description, value: "これは商品の説明文です"
+    %p 商品ステータス
+    %p
+        = f.text_field :condition, value: "1"
+    %p 送料
+    %p
+        = f.text_field :delivery_charge, value: "送料は商品に含みます"
+    %p 配送元
+    %p
+        = f.text_field :delivery_origin, value: "福岡県"
+    %p 発送日時
+    %p
+        = f.text_field :shipping_date, value: "２〜３日で発送"
+    %p 値段
+    %p
+        = f.number_field :price, value: 20000
+    %p カテゴリーID（本当はnameで選ぶ）
+    %p
+        = f.number_field  :category_id, value: 63
+    %p ブランドID（本当はnameで選ぶ）
+    %p
+        = f.number_field  :brand_id, value: 1
+        = f.submit value: "登録する"
 
-=form_for @test do |f|
-    = f.text_field :text
-    = f.file_field :image
-    = f.submit value: "確定"
 
-- if @test_obj.nil? || @test_obj.empty?
-    %p データが存在しません
-- else
-    %ul
-        - @test_obj.each do |obj|
-            %li
-                = image_tag obj.image ,size: "200x200", alt: "出品画像"
+
