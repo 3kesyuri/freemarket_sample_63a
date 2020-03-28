@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :tests, only: [:index, :create]
   resources :destinations, only: [:create, :update]
   resources :categories, only: [:index]
-  resources :products, only: [:index, :new, :create]
+  resources :products, only: [:index, :new, :create] do
+    collection do
+    get 'get_category_children', defaults: { format: 'json' }
+    get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
   resources :users, only: [:show, :edit, :update] do
     resources :destinations, only: [:index]
     resources :credits, only: [:new, :show],shallow: true
