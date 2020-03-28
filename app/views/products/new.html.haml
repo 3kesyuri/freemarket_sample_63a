@@ -19,7 +19,6 @@
               .hidden-content
                 = f.fields_for :product_images do |i|
                   = i.file_field :image, class: "hidden-field"
-                -# 5つのfile_fieldを準備するに当たって、足りない分を表示
                 - @product.product_images.length.upto(4) do |i|
                   %input{name: "product[product_images_attributes][#{i}][image]", id: "product_product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}           
         .content__product--section
