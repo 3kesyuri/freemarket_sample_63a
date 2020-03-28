@@ -132,9 +132,11 @@
     margin-bottom: 30px;
   }
 
-  #product_category_id {
+  #product_category_id,
+  #child_category,
+  #grandchild_category {
     @include form-selectbox();
-    margin: 20px 0px;
+    margin: 10px 0px 15px 0px;
   }
 
   #product_brand_id {
@@ -156,8 +158,6 @@
     text-align: right;
     width: 150px;
   }
-
-//  プレビュー表示欄のCSS
 
   .preview-box {
     height: 162px;
@@ -199,7 +199,6 @@
     cursor: pointer;
   }
 
-//投稿クリックエリアのCSS
   .label-box {
     display: block;
     border: 1px dashed #ccc;
@@ -225,7 +224,6 @@
     }
   }
 
-  //file_fieldのcss
   .hidden-field {
     display: none;
   }
