@@ -1,0 +1,72 @@
+= @product_info.id
+.purchase_index
+  = render "shared/logo"
+
+  .content__wrapper
+    .content__title
+      %h2 購入内容の確認
+
+    
+    .content__img--wrap
+      .content__img--img
+        = image_tag "icon-02.png", alt: "商品写真"
+      %dl.content__img--info
+        %dt.content__img--name
+          = @product_info.name
+        %dd.content__img--price
+          = "￥" + @product_amount.to_s
+        %dd.content__img--delivariy
+          = @product_info.delivery_charge
+    .content__main--wrap
+      .content__main--info
+        .content__main--title01
+          %h3 お支払い金額
+          %p
+            = "￥" + @product_amount.to_s
+      .content__main--info
+        .content__main--title02
+          %h3 支払い方法
+          %p.content__main--link
+            - if !@credit.blank?
+              = link_to new_user_credit_path(current_user.id) do
+                変更する
+        .content__main--detail
+          - if !@credit.blank?
+            %p.content__main--card-number カード番号
+            %p
+              = "**** **** **** " + @default_card_information.last4
+            %p.content__main--card-limit 有効期限
+            .content__main--card-limit-wrap
+              %p 12
+              %p 月
+              %p 20
+              %p 年
+          - else
+            %p.content__main--link
+              = link_to new_user_credit_path(current_user.id) do
+                クレジットカードを登録してください
+
+      .content__main--info
+        .content__main--title02
+          %h3 配送先
+          - if !@destination.blank?
+            %p.content__main--link
+              = link_to user_destinations_path(current_user.id) do
+                変更する
+        .content__main--detail
+          - if !@destination.blank?
+            %p
+              = "〒" + @destination.zip_code.to_s
+            %p
+              = @destination.prefecture + @destination.municipality + @destination.address + @destination.apartment_name 
+            %p
+              = @destination.family_name + @destination.last_name
+          - else
+            %p.content__main--link
+              = link_to user_destinations_path(current_user.id) do
+                配送先を登録してください
+      
+      - if !@credit.blank? & !@destination.blank?
+        = form_tag(pay_product_purchases_path(@product_info.id), method: :post) do
+          = text_field_tag "amount","",type: "hidden",value: "#{@product_amount}"
+          = submit_tag "購入する", class: "content__form--btn"

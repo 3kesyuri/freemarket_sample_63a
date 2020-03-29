@@ -10,14 +10,19 @@
  @import "module/header";
  @import "module/footer";
  @import "module/purchase_btn";
+ @import "module/logo";
 
  /* 各ページのSCSS */
  @import "mypage/edit";
  @import "mypage/destinations";
  @import "mypage/credit";
  @import "mypage/show";
+ @import "mypage/logout";
+ @import "purchase/index";
 
  @import "./login";
  @import "./products/new";
+ @import "./products/edit";
  @import "products/index";
+ @import "products/show";
  @import "category/categories";

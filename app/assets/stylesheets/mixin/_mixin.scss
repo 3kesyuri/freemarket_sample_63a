@@ -98,18 +98,21 @@
 }
 @mixin pickup_box_lists() {
   width: 780px;
-  margin: 26px auto;
+  margin: 26px auto 0;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
   padding: 0;
 }
 @mixin pickup_box_list_img() {
-  width: 220px;
-  height: 150px;
+  width: 30%;
   position: relative;
   overflow: hidden;
-  margin: 0;
+  margin: 10px 0 0 3%;
   z-index: auto;
+
+  img {
+    width: 100%;
+  }
 }
 @mixin footer_contents_content() {
   display: flex;

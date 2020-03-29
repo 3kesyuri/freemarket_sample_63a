@@ -1,0 +1,226 @@
+.puroducts__edit {
+  
+  background-color: $bg-gray;
+  color: $font-gray2;
+
+  .logo{
+    &__wrapper{
+      @include logo();
+    }
+  }
+
+  .content {
+
+    &__wrapper{
+      @include width-700px;
+      background-color: $bg-white;
+    }
+
+    &__product {
+      &--wrapper{
+        padding: 16px;
+        font-size: 14px;
+      }
+
+      &--section {
+        @include heading-default();
+     }
+
+      &--image-attention,
+      &--description-attention {
+        span {
+          font-weight: normal;
+        }
+      }
+
+      &--image-box{
+        display: block;
+        margin: 16px auto 0;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      &--image-content {
+        display: flex;
+      }
+
+      &--image-label {
+        margin-bottom: 10px;
+        width: 620px;
+      }
+
+      &--image-icon {
+        position: absolute;
+        font-size: 30px;
+        top: 40%;
+        left: 50%;
+        margin: auto;
+        transform: translateX(-50%);
+      }
+      
+      &--name{
+        border-top: 1px solid $bdr-gray;
+      }
+
+
+      &--section-title {
+        @include section-title();
+      }
+
+      &--price {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+      }
+
+      &--yen {
+        margin: 5px;
+      }
+
+      &--fee {
+        @include accounting();
+      }
+
+      &--profit {
+        @include accounting();
+        border-top: 1px solid $bdr-gray;
+        padding-top: 16px;
+      }
+
+      &--btn {
+        @include productbtn-default();
+        background-color: $bg-blue;
+        color: white;
+        margin-bottom: 24px;
+      }
+
+      &--btn-return {
+        @include productbtn-default();
+        background-color: rgb(180, 179, 179);
+        margin: 0px auto 24px;
+        color: black;
+      }
+
+
+    }
+
+    &__form {
+      &--required{
+        @include required();
+      }
+
+      &--optional {
+        @include optional();
+      }
+    }
+  }
+  #product_name {
+    @include form-default();
+    height: 48px;
+    padding: 13px 16px;
+    
+  }
+
+  #product_description {
+    @include form-default();
+    height: 100px;
+    padding: 13px 16px;
+  }
+
+  #product_delivery_charge,
+  #product_delivery_origin,
+  #product_shipping_date  {
+    @include form-selectbox();
+    margin-bottom: 30px;
+  }
+
+  #product_category_id {
+    @include form-selectbox();
+    margin: 20px 0px;
+  }
+
+  #product_brand_id {
+    @include form-default();
+    margin-bottom: 30px;
+    height: 48px;
+  }
+
+  #product_condition{
+    @include form-selectbox();
+  }
+
+  #product_price {
+    order: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    height: 48px;
+    text-align: right;
+    width: 150px;
+  }
+
+//  プレビュー表示欄のCSS
+
+  .preview-box {
+    height: 162px;
+    width: 112px;
+    margin: 0 15px 10px 0;
+  }
+
+  .upper-box {
+    height: 112px;
+    width: 100%;
+    img{
+      width: 112px;
+      height: 112px;
+    }
+  }
+
+  .lower-box {
+    display: flex;
+    text-align: center;
+  }
+
+
+  .delete-box {
+    color: #00b0ff;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #eee;
+    background: #f5f5f5;
+    cursor: pointer;
+  }
+
+//投稿クリックエリアのCSS
+  .label-box {
+    display: block;
+    border: 1px dashed #ccc;
+    position: relative;
+    background: #f5f5f5;
+    width: 100%;
+    height: 162px;
+    cursor: pointer;
+    &__text-visible {
+      position: absolute;
+      top: 75%;
+      left: 16px;
+      right: 16px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: bold;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      pointer-events: none;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+
+  //file_fieldのcss
+  // .hidden-field {
+  //   display: none;
+  // }
+
+}
