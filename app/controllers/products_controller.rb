@@ -54,8 +54,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-    redirect_to root_path
+    if @product.destroy
+      redirect_to root_path
+    else
+      redirect_to edit_product_path(@product.id)
+    end
   end
 
   def show
