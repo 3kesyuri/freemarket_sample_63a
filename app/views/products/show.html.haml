@@ -91,7 +91,10 @@
                 %th
                   ブランド
                   %td
-                    = @brand.name
+                    - if @product_info.brand_id.nil?
+                      %p --
+                    - else
+                      = @brand.name
               %tr
                 %th
                   商品の状態
