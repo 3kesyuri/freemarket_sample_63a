@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :set_product_images, :set_product_info,only: :show
-
+  
   def index
     @products = Product.where(status: :sale).order("created_at DESC")
   end
@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
     authenticate_user!
     @product = Product.new
     @product.product_images.new
+    @category_parent = ["選択してください"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent << parent.name
+    end
   end
 
   def create
@@ -29,6 +33,16 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+
+  def get_category_children
+    @category_children = Category.find(params[:parent_name]).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:child_id]).children
+  end
+  
+  private
 
   def edit
   end
@@ -71,5 +85,3 @@ class ProductsController < ApplicationController
       @product_info = Product.find_by(id: params[:id])
     end
 end
-
-
