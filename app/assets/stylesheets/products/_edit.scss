@@ -166,7 +166,7 @@
     width: 150px;
   }
 
-//  プレビュー表示欄のCSS
+
 
   .preview-box {
     height: 162px;
@@ -199,7 +199,7 @@
     cursor: pointer;
   }
 
-//投稿クリックエリアのCSS
+
   .label-box {
     display: block;
     border: 1px dashed #ccc;
@@ -225,9 +225,8 @@
     }
   }
 
-  //file_fieldのcss
-  // .hidden-field {
-  //   display: none;
-  // }
+  .hidden-field {
+    display: none;
+  }
 
 }
