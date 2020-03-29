@@ -57,7 +57,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @brand = Brand.find(@product_info.brand_id)
+    if !@product_info.brand_id.nil?
+      @brand = Brand.find(@product_info.brand_id)
+    end
     @category = Category.find(@product_info.category_id)
   end
   
