@@ -42,6 +42,8 @@ class ProductsController < ApplicationController
   end
 
   def delete
+    @product.destroy
+    redirect_to root_path
   end
 
   def show
