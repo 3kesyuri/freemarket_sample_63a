@@ -94,6 +94,13 @@
         margin-bottom: 24px;
       }
 
+      &--btn-delete {
+        @include productbtn-default();
+        background-color: $bg-red;
+        color: white;
+        margin-bottom: 24px;
+      }
+
       &--btn-return {
         @include productbtn-default();
         background-color: rgb(180, 179, 179);
@@ -159,7 +166,7 @@
     width: 150px;
   }
 
-//  プレビュー表示欄のCSS
+
 
   .preview-box {
     height: 162px;
@@ -192,7 +199,7 @@
     cursor: pointer;
   }
 
-//投稿クリックエリアのCSS
+
   .label-box {
     display: block;
     border: 1px dashed #ccc;
@@ -218,9 +225,8 @@
     }
   }
 
-  //file_fieldのcss
-  // .hidden-field {
-  //   display: none;
-  // }
+  .hidden-field {
+    display: none;
+  }
 
 }
