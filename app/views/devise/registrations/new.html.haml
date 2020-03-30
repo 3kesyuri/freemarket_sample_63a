@@ -2,7 +2,9 @@
   = render "devise/shared/error_messages", resource: resource
 
   .logo__wrapper
-    = image_tag "logo.svg", alt: "logo"
+    =link_to root_path do
+      = image_tag "logo.svg", alt: "logo"
+
 
   .content__wrapper
     .content__title
