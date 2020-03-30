@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product_images, :set_product_info,only: :show
   
   def index
-    @products = Product.where(status: :sale).order("created_at DESC")
+    @products = Product.where(status: :sale).order("created_at DESC").limit(6)
   end
   
   def new
