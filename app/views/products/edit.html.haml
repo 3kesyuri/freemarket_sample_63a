@@ -1,6 +1,5 @@
 .puroducts__edit
-  .logo__wrapper
-    = image_tag "logo.svg", alt: "logo"
+  = render "shared/logo"
 
   .content__wrapper
     = form_for(@product) do |f|

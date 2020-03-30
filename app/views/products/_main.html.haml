@@ -87,8 +87,8 @@
         -@products.each do |product|
           .top-page-main__pickup-catgory__box__lists__img
             =link_to product_path(product), class: "top-page-main__pickup-catgory__box__lists__img" do
-              = image_tag product.product_images[0].image.url
-              %br
+              .top-page-main__pickup-catgory__box__lists__img-inner
+                = image_tag product.product_images[0].image.url
               .top-page-main__pickup-catgory__box__lists__img__body
                 = product.name
                 %br

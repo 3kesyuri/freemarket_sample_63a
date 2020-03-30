@@ -220,6 +220,11 @@
         @include pickup_box_lists();
         &__img {
           @include pickup_box_list_img();
+
+          &-inner{
+            height: 150px;
+            overflow: hidden;
+          }
           
           &__body {
             background-color: white;
@@ -246,8 +251,10 @@
       }
       &__lists {
         @include pickup_box_lists();
-        &_img {
+        &__img {
           @include pickup_box_list_img();
+
+          
         }
       }
     }
