@@ -20,6 +20,7 @@
 }
 
 .signup{
+  padding: 40px 0 40px;
 
   .content{
 
@@ -28,9 +29,24 @@
       font-size: 24px;
       text-align: center;
       border-bottom: 1px solid $bdr-gray;
-
+  
       h2{
         font-weight: bold;
+      }
+    }
+
+    &__birthday--wrapper {
+      display: flex;
+
+      #user_birth_year,
+      #user_birth_month,
+      #user_birth_day {
+        height: 48px;
+        width: 98px;
+      }
+
+      span {
+        margin: 25px 5px;
       }
     }
 
