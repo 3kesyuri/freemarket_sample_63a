@@ -135,7 +135,7 @@ $(document).on('turbolinks:load', function(){
         return
       }
         $.ajax({
-          url: 'get_category_children',
+          url: '/products/get_category_children',
           type: 'GET',
           data: {parent_name: parentCategory},
           dataType: 'json'
@@ -162,7 +162,7 @@ $(document).on('turbolinks:load', function(){
         return
       } 
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/products/get_category_grandchildren',
         type: 'GET',
         data: {child_id: childrenCategory},
         dataType: 'json'
