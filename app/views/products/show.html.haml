@@ -65,8 +65,7 @@
             =link_to new_user_session_path do
               購入にはログインが必要です
         .products-detail-page__main__head__contents__top__item-box__comments
-          = @product_info.description
-
+          = safe_join(@product_info.description.split("\n"),tag(:br))
         .products-detail-page__main__head__contents__top__item-box__table
           %table
             %tbody
