@@ -79,12 +79,21 @@
 
       &--fee {
         @include accounting();
+
+        p{font-weight: normal;
+          color: $font-gray2;
+        }
+        
       }
 
       &--profit {
         @include accounting();
         border-top: 1px solid $bdr-gray;
         padding-top: 16px;
+
+        p{font-weight: normal;
+          color: $font-gray2;
+        }
       }
 
       &--btn {

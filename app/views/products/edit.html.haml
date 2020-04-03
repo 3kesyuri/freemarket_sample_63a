@@ -77,14 +77,16 @@
               %span.content__product--yen ¥
               = f.number_field :price, min:300, max:9999999, step:1, placeholder: "0"
           %label.content__product--fee
-            %span 販売手数料（10％）
-            %br/
-            %span ¥ --
+            %p 販売手数料（10％）
+            %p
+              %span ¥
+              %span.price_field--com --
         .content__product--section
           %label.content__product--profit
-            %span 販売利益
-            %br/
-            %span ¥ --
+            %p 販売利益
+            %p
+              %span ¥
+              %span.price_field--ben --
         = f.hidden_field :status, {value: 'sale'}
         = f.submit class: "content__product--btn", value: "編集する", data: { disable_with: false }
         = link_to "削除する", product_path(@product.id),method: :delete, class: "content__product--btn-delete"
