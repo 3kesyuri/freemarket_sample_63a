@@ -223,5 +223,23 @@ $(document).on('turbolinks:load', function(){
           {'background-color':'#3CCACE'
         });
       });
+
+      price = $('#product_price').val();
+      com = price * 0.1
+      ben = price * 0.9
+      $('.price_field--com').text(com);
+      $('.price_field--ben').text(ben);
+
     }
+
+    $('#product_price').on('change',function(){
+      price = $(this).val();
+      com = price * 0.1
+      ben = price * 0.9
+
+      $('.price_field--com').text(com);
+      $('.price_field--ben').text(ben);
+      
+
+    });
 });
