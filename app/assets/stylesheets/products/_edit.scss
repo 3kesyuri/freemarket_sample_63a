@@ -146,6 +146,16 @@
     margin: 20px 0px;
   }
 
+  #child_category {
+    @include form-selectbox();
+    margin: 20px 0px;
+  }
+
+  #grandchild_category{
+    @include form-selectbox();
+    margin: 20px 0px;
+  }
+
   #product_brand_id {
     @include form-default();
     margin-bottom: 30px;
