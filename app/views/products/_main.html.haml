@@ -101,11 +101,16 @@
       ピックアップブランド
     .top-page-main__pickup-brand__box
       .top-page-main__pickup-brand__box__title
-        アーカイバ
+        シャネル
       .top-page-main__pickup-brand__box__lists
-        .top-page-main__pickup-brand__box__lists__img
-          = image_tag "icon-02.png", width: "220px"
-        .top-page-main__pickup-brand__box__lists__img
-          = image_tag "icon-02.png", width: "220px"
-        .top-page-main__pickup-brand__box__lists__img
-          = image_tag "icon-02.png", width: "220px"
+        -@brand_1.each do |product|
+          .top-page-main__pickup-brand__box__lists__img
+            =link_to product_path(product), class: "top-page-main__pickup-catgory__box__lists__img" do
+              .top-page-main__pickup-brand__box__lists__img-inner
+                = image_tag product.product_images[0].image.url
+              .top-page-main__pickup-brand__box__lists__img__body
+                = product.name
+                %br
+                = "#{product.price}円"
+                %br
+                (税込)

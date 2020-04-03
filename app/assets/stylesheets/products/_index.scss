@@ -241,6 +241,7 @@
   }
   &__pickup-brand {
     @include pickup();
+    padding-bottom: 30px;
     &__head {
       @include pickup_head();
     }
@@ -253,6 +254,21 @@
         @include pickup_box_lists();
         &__img {
           @include pickup_box_list_img();
+
+          &-inner{
+            height: 150px;
+            overflow: hidden;
+          }
+
+          &__body {
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            overflow: hidden;
+            line-height: 1.5;
+            font-size: 16px;
+            text-align: left;
+          }
 
           
         }
