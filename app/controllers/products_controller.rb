@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren, :list_new]
   before_action :set_product_images, :set_product_info,only: :show
   
   def index
@@ -67,6 +67,10 @@ class ProductsController < ApplicationController
       @brand = Brand.find(@product_info.brand_id)
     end
     @category = Category.find(@product_info.category_id)
+  end
+
+  def list_new
+    @products = Product.where(status: :sale).order("created_at DESC")
   end
   
   private

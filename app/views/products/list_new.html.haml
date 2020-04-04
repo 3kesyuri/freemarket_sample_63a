@@ -1,0 +1,21 @@
+= render "shared/header"
+
+  .list__wrap
+    .top-page-main__pickup-catgory
+      .top-page-main__pickup-catgory__head
+        ピックアップカテゴリー
+      .top-page-main__pickup-catgory__box
+        .top-page-main__pickup-catgory__box__title
+          新規投稿商品
+        .top-page-main__pickup-catgory__box__lists
+          -@products.each do |product|
+            .top-page-main__pickup-catgory__box__lists__img
+              =link_to product_path(product), class: "top-page-main__pickup-catgory__box__lists__img" do
+                .top-page-main__pickup-catgory__box__lists__img-inner
+                  = image_tag product.product_images[0].image.url
+                .top-page-main__pickup-catgory__box__lists__img__body
+                  = product.name
+                  %br
+                  = "#{product.price}円"
+                  %br
+                  (税込)

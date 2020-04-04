@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     collection do
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
+        get 'list_new', to: 'products#list_new'
     end
     resources :purchases, only: [:index],shallow: true do
       collection do
