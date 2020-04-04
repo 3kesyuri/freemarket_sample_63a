@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+
   $(function(){
 
     function buildHTML(count) {
@@ -180,7 +180,7 @@ $(document).on('turbolinks:load', function(){
         alert('カテゴリー取得に失敗しました');
       })
     })
-  });
+
 
     if (window.location.href.match(/\/products\/\d+\/edit/)){
 
@@ -201,34 +201,34 @@ $(document).on('turbolinks:load', function(){
         $('.content__product--image-label').hide();
       }
 
-      var btn = $(`.content__product--btn`);
-      $(document).on('click', '.delete-box', function() {
-        if ($(`.preview-box`).length == 0) {
-          btn.attr({
-            disabled: true,
-            value: '画像を一枚以上登録してください'
-          });
-          btn.css(
-            {'background-color':'red'
-          });
-        }
-      });
+      // var btn = $(`.content__product--btn`);
+      // $(document).on('click', '.delete-box', function() {
+      //   if ($(`.preview-box`).length == 0) {
+      //     btn.attr({
+      //       disabled: true,
+      //       value: '画像を一枚以上登録してください'
+      //     });
+      //     btn.css(
+      //       {'background-color':'red'
+      //     });
+      //   }
+      // });
 
-      $(document).on('change', '.hidden-field', function() {
-        btn.attr({
-          disabled: false,
-          value: '編集する'
-        });
-        btn.css(
-          {'background-color':'#3CCACE'
-        });
-      });
+      // $(document).on('change', '.hidden-field', function() {
+      //   btn.attr({
+      //     disabled: false,
+      //     value: '編集する'
+      //   });
+      //   btn.css(
+      //     {'background-color':'#3CCACE'
+      //   });
+      // });
 
-      price = $('#product_price').val();
-      com = price * 0.1
-      ben = price * 0.9
-      $('.price_field--com').text(com);
-      $('.price_field--ben').text(ben);
+      // price = $('#product_price').val();
+      // com = price * 0.1
+      // ben = price * 0.9
+      // $('.price_field--com').text(com);
+      // $('.price_field--ben').text(ben);
 
     }
 
@@ -240,6 +240,5 @@ $(document).on('turbolinks:load', function(){
       $('.price_field--com').text(com);
       $('.price_field--ben').text(ben);
       
-
     });
-});
+  });
