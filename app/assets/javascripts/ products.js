@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+
   $(function(){
 
     function buildHTML(count) {
@@ -242,4 +242,3 @@ $(document).on('turbolinks:load', function(){
       
 
     });
-});
