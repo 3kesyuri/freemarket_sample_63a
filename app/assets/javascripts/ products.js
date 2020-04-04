@@ -234,8 +234,8 @@ $(document).on('turbolinks:load', function(){
 
     $('#product_price').on('change',function(){
       price = $(this).val();
-      com = price * 0.1
-      ben = price * 0.9
+      com = Math.round(price * 0.1);
+      ben = Math.round(price * 0.9);
 
       $('.price_field--com').text(com);
       $('.price_field--ben').text(ben);
